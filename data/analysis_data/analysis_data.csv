@@ -1,20 +1,437 @@
-width,length,flying_time
-70,111,1.83
-57,127,2.32
-59,92,2.05
-70,75,1.1
-62,112,2.32
-68,103.5,0.5
-58,108,1.7
-79,114,0.86
-56,186,3.42
-87,68,1.37
-50,118,2.68
-49,186,1.83
-61,116,1.32
-60,127,1
-56,184,2.79
-69,124,1.4
-60,95,1.12
-44,137,1.28
-63,125,1.35
+poll_id,pollster,numeric_grade,pollscore,methodology,state,start_date,end_date,sample_size,population,election_date,party,answer,candidate_name,pct
+88765,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,NA,2024-10-14,10/16/24,1000,lv,11/5/24,REP,Trump,Donald Trump,49.2
+88762,YouGov,3,-1.1,Online Panel,Arizona,2024-10-11,10/16/24,1435,lv,11/5/24,REP,Trump,Donald Trump,51
+88710,YouGov,3,-1.1,Online Panel,NA,2024-10-12,10/15/24,1457,rv,11/5/24,REP,Trump,Donald Trump,45
+88710,YouGov,3,-1.1,Online Panel,NA,2024-10-12,10/15/24,1314,lv,11/5/24,REP,Trump,Donald Trump,45
+88721,Emerson,2.9,-1.1,IVR/Online Panel,California,2024-10-12,10/14/24,1000,lv,11/5/24,REP,Trump,Donald Trump,36.6
+88736,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,NA,2024-10-11,10/14/24,1110,rv,11/5/24,REP,Trump,Donald Trump,50
+88736,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,NA,2024-10-11,10/14/24,870,lv,11/5/24,REP,Trump,Donald Trump,50
+88734,Quinnipiac,2.8,-0.5,Live Phone,Georgia,2024-10-10,10/14/24,1328,lv,11/5/24,REP,Trump,Donald Trump,52
+88734,Quinnipiac,2.8,-0.5,Live Phone,Georgia,2024-10-10,10/14/24,1328,lv,11/5/24,REP,Trump,Donald Trump,52
+88735,Quinnipiac,2.8,-0.5,Live Phone,North Carolina,2024-10-10,10/14/24,1031,lv,11/5/24,REP,Trump,Donald Trump,47
+88735,Quinnipiac,2.8,-0.5,Live Phone,North Carolina,2024-10-10,10/14/24,1031,lv,11/5/24,REP,Trump,Donald Trump,47
+88722,SurveyUSA,2.8,-1.3,Online Panel,Washington,2024-10-09,10/14/24,703,lv,11/5/24,REP,Trump,Donald Trump,35
+88703,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-11,10/13/24,807,rv,11/5/24,REP,Trump,Donald Trump,42
+88703,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-11,10/13/24,769,lv,11/5/24,REP,Trump,Donald Trump,44
+88703,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-11,10/13/24,938,a,11/5/24,REP,Trump,Donald Trump,37
+88670,YouGov,3,-1.1,Online Panel,NA,2024-10-08,10/11/24,2712,lv,11/5/24,REP,Trump,Donald Trump,48
+88711,Marist,2.9,-0.9,Online Panel/Text-to-Web,NA,2024-10-08,10/10/24,1401,lv,11/5/24,REP,Trump,Donald Trump,47
+88711,Marist,2.9,-0.9,Online Panel/Text-to-Web,NA,2024-10-08,10/10/24,1708,rv,11/5/24,REP,Trump,Donald Trump,48
+88664,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-10-07,10/10/24,857,rv,11/5/24,REP,Trump,Donald Trump,47
+88664,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-10-07,10/10/24,857,rv,11/5/24,REP,Trump,Donald Trump,45
+88664,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-10-07,10/10/24,857,lv,11/5/24,REP,Trump,Donald Trump,47
+88664,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-10-07,10/10/24,857,lv,11/5/24,REP,Trump,Donald Trump,45
+88665,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-10-07,10/10/24,808,lv,11/5/24,REP,Trump,Donald Trump,51
+88665,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-10-07,10/10/24,808,lv,11/5/24,REP,Trump,Donald Trump,50
+88665,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-10-07,10/10/24,808,rv,11/5/24,REP,Trump,Donald Trump,51
+88665,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-10-07,10/10/24,808,rv,11/5/24,REP,Trump,Donald Trump,49
+88738,University of Massachusetts Lowell/YouGov,2.9,-1,Online Panel,New Hampshire,2024-10-02,10/10/24,600,lv,11/5/24,REP,Trump,Donald Trump,41
+88768,YouGov,3,-1.1,Online Panel,Texas,2024-10-02,10/10/24,1091,lv,11/5/24,REP,Trump,Donald Trump,51
+88712,Marquette Law School,3,-1.1,Probability Panel,NA,2024-10-01,10/10/24,780,rv,11/5/24,REP,Trump,Donald Trump,50
+88712,Marquette Law School,3,-1.1,Probability Panel,NA,2024-10-01,10/10/24,780,rv,11/5/24,REP,Trump,Donald Trump,39
+88712,Marquette Law School,3,-1.1,Probability Panel,NA,2024-10-01,10/10/24,652,lv,11/5/24,REP,Trump,Donald Trump,50
+88712,Marquette Law School,3,-1.1,Probability Panel,NA,2024-10-01,10/10/24,652,lv,11/5/24,REP,Trump,Donald Trump,41
+88737,University of Massachusetts Lowell/YouGov,2.9,-1,Online Panel,Pennsylvania,2024-10-02,10/9/24,800,lv,11/5/24,REP,Trump,Donald Trump,45
+88606,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Arizona,2024-10-05,10/8/24,1000,lv,11/5/24,REP,Trump,Donald Trump,50.5
+88607,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Georgia,2024-10-05,10/8/24,1000,lv,11/5/24,REP,Trump,Donald Trump,49.7
+88608,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Michigan,2024-10-05,10/8/24,950,lv,11/5/24,REP,Trump,Donald Trump,49.6
+88609,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Nevada,2024-10-05,10/8/24,900,lv,11/5/24,REP,Trump,Donald Trump,48.1
+88610,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,North Carolina,2024-10-05,10/8/24,1000,lv,11/5/24,REP,Trump,Donald Trump,49.9
+88611,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Pennsylvania,2024-10-05,10/8/24,1000,lv,11/5/24,REP,Trump,Donald Trump,49.7
+88612,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Wisconsin,2024-10-05,10/8/24,1000,lv,11/5/24,REP,Trump,Donald Trump,49.9
+88617,Siena/NYT,3,-1.5,Live Phone,Montana,2024-10-05,10/8/24,656,rv,11/5/24,REP,Trump,Donald Trump,57
+88617,Siena/NYT,3,-1.5,Live Phone,Montana,2024-10-05,10/8/24,656,rv,11/5/24,REP,Trump,Donald Trump,56
+88617,Siena/NYT,3,-1.5,Live Phone,Montana,2024-10-05,10/8/24,656,lv,11/5/24,REP,Trump,Donald Trump,57
+88617,Siena/NYT,3,-1.5,Live Phone,Montana,2024-10-05,10/8/24,656,lv,11/5/24,REP,Trump,Donald Trump,56
+88667,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/8/24,2631,a,11/5/24,REP,Trump,Donald Trump,48
+88667,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/8/24,2226,rv,11/5/24,REP,Trump,Donald Trump,47
+88667,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/8/24,1714,lv,11/5/24,REP,Trump,Donald Trump,48
+88667,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/8/24,2631,a,11/5/24,REP,Trump,Donald Trump,49
+88667,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/8/24,2226,rv,11/5/24,REP,Trump,Donald Trump,49
+88667,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/8/24,1714,lv,11/5/24,REP,Trump,Donald Trump,48
+88590,YouGov,3,-1.1,Online Panel,NA,2024-10-06,10/7/24,1414,rv,11/5/24,REP,Trump,Donald Trump,44
+88590,YouGov,3,-1.1,Online Panel,NA,2024-10-06,10/7/24,1230,lv,11/5/24,REP,Trump,Donald Trump,45
+88558,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/7/24,1272,a,11/5/24,REP,Trump,Donald Trump,38
+88558,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/7/24,1076,rv,11/5/24,REP,Trump,Donald Trump,43
+88558,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/7/24,1076,lv,11/5/24,REP,Trump,Donald Trump,45
+88558,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/7/24,1272,a,11/5/24,REP,Trump,Donald Trump,47
+88558,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/7/24,1076,rv,11/5/24,REP,Trump,Donald Trump,48
+88558,Ipsos,2.8,-0.9,Probability Panel,NA,2024-10-04,10/7/24,1076,lv,11/5/24,REP,Trump,Donald Trump,49
+88591,Quinnipiac,2.8,-0.5,Live Phone,Michigan,2024-10-03,10/7/24,1007,lv,11/5/24,REP,Trump,Donald Trump,50
+88591,Quinnipiac,2.8,-0.5,Live Phone,Michigan,2024-10-03,10/7/24,1007,lv,11/5/24,REP,Trump,Donald Trump,51
+88592,Quinnipiac,2.8,-0.5,Live Phone,Pennsylvania,2024-10-03,10/7/24,1412,lv,11/5/24,REP,Trump,Donald Trump,46
+88592,Quinnipiac,2.8,-0.5,Live Phone,Pennsylvania,2024-10-03,10/7/24,1412,lv,11/5/24,REP,Trump,Donald Trump,47
+88593,Quinnipiac,2.8,-0.5,Live Phone,Wisconsin,2024-10-03,10/7/24,1073,lv,11/5/24,REP,Trump,Donald Trump,48
+88593,Quinnipiac,2.8,-0.5,Live Phone,Wisconsin,2024-10-03,10/7/24,1073,lv,11/5/24,REP,Trump,Donald Trump,49
+88613,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Florida,2024-10-03,10/7/24,1257,lv,11/5/24,REP,Trump,Donald Trump,51
+88613,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Florida,2024-10-03,10/7/24,1410,rv,11/5/24,REP,Trump,Donald Trump,51
+88614,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Texas,2024-10-03,10/7/24,1365,rv,11/5/24,REP,Trump,Donald Trump,52
+88614,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Texas,2024-10-03,10/7/24,1186,lv,11/5/24,REP,Trump,Donald Trump,53
+88615,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Ohio,2024-10-03,10/7/24,1511,rv,11/5/24,REP,Trump,Donald Trump,52
+88615,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Ohio,2024-10-03,10/7/24,1327,lv,11/5/24,REP,Trump,Donald Trump,52
+88616,The Washington Post,3,-1.2,Live Phone/Text-to-Web,Ohio,2024-10-03,10/7/24,1002,lv,11/5/24,REP,Trump,Donald Trump,51
+88616,The Washington Post,3,-1.2,Live Phone/Text-to-Web,Ohio,2024-10-03,10/7/24,1002,rv,11/5/24,REP,Trump,Donald Trump,51
+88550,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-29,10/6/24,3385,lv,11/5/24,REP,Trump,Donald Trump,46
+88550,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-29,10/6/24,3385,lv,11/5/24,REP,Trump,Donald Trump,44
+88555,Siena/NYT,3,-1.5,Live Phone,Florida,2024-09-29,10/6/24,622,lv,11/5/24,REP,Trump,Donald Trump,55
+88555,Siena/NYT,3,-1.5,Live Phone,Florida,2024-09-29,10/6/24,622,lv,11/5/24,REP,Trump,Donald Trump,53
+88555,Siena/NYT,3,-1.5,Live Phone,Florida,2024-09-29,10/6/24,622,rv,11/5/24,REP,Trump,Donald Trump,54
+88555,Siena/NYT,3,-1.5,Live Phone,Florida,2024-09-29,10/6/24,622,rv,11/5/24,REP,Trump,Donald Trump,53
+88551,Suffolk,2.9,-1,Live Phone,Massachusetts,2024-10-01,10/5/24,500,lv,11/5/24,REP,Trump,Donald Trump,32.2
+88527,YouGov,3,-1.1,Online Panel,NA,2024-10-02,10/4/24,1150,rv,11/5/24,REP,Trump,Donald Trump,45
+88527,YouGov,3,-1.1,Online Panel,NA,2024-10-02,10/4/24,1032,lv,11/5/24,REP,Trump,Donald Trump,47
+88527,YouGov,3,-1.1,Online Panel,NA,2024-10-02,10/4/24,1151,rv,11/5/24,REP,Trump,Donald Trump,46
+88527,YouGov,3,-1.1,Online Panel,NA,2024-10-02,10/4/24,1033,lv,11/5/24,REP,Trump,Donald Trump,47
+88556,Siena/NYT,3,-1.5,Live Phone,Texas,2024-09-29,10/4/24,617,lv,11/5/24,REP,Trump,Donald Trump,50
+88556,Siena/NYT,3,-1.5,Live Phone,Texas,2024-09-29,10/4/24,617,lv,11/5/24,REP,Trump,Donald Trump,49
+88556,Siena/NYT,3,-1.5,Live Phone,Texas,2024-09-29,10/4/24,617,rv,11/5/24,REP,Trump,Donald Trump,50
+88556,Siena/NYT,3,-1.5,Live Phone,Texas,2024-09-29,10/4/24,617,rv,11/5/24,REP,Trump,Donald Trump,48
+88541,Christopher Newport U.,2.8,-0.6,Live Phone,Virginia,2024-09-28,10/4/24,800,lv,11/5/24,REP,Trump,Donald Trump,41
+88618,YouGov/Center for Working Class Politics,3,-1.1,Online Panel,Pennsylvania,2024-09-24,10/2/24,1000,rv,11/5/24,REP,Trump,Donald Trump,44.7
+88482,YouGov,3,-1.1,Online Panel,NA,2024-09-29,10/1/24,1463,rv,11/5/24,REP,Trump,Donald Trump,45
+88482,YouGov,3,-1.1,Online Panel,NA,2024-09-29,10/1/24,1261,lv,11/5/24,REP,Trump,Donald Trump,46
+88496,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,NA,2024-09-29,10/1/24,1000,lv,11/5/24,REP,Trump,Donald Trump,48.6
+88506,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,NA,2024-09-27,10/1/24,1294,lv,11/5/24,REP,Trump,Donald Trump,48
+88506,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,NA,2024-09-27,10/1/24,1514,rv,11/5/24,REP,Trump,Donald Trump,47
+88431,The Washington Post,3,-1.2,Live Phone/Text-to-Web,North Carolina,2024-09-25,9/29/24,1001,lv,11/5/24,REP,Trump,Donald Trump,50
+88431,The Washington Post,3,-1.2,Live Phone/Text-to-Web,North Carolina,2024-09-25,9/29/24,1001,rv,11/5/24,REP,Trump,Donald Trump,50
+88457,Quinnipiac,2.8,-0.5,Live Phone,North Carolina,2024-09-25,9/29/24,953,lv,11/5/24,REP,Trump,Donald Trump,49
+88457,Quinnipiac,2.8,-0.5,Live Phone,North Carolina,2024-09-25,9/29/24,953,lv,11/5/24,REP,Trump,Donald Trump,49
+88458,Quinnipiac,2.8,-0.5,Live Phone,Georgia,2024-09-25,9/29/24,942,lv,11/5/24,REP,Trump,Donald Trump,50
+88458,Quinnipiac,2.8,-0.5,Live Phone,Georgia,2024-09-25,9/29/24,942,lv,11/5/24,REP,Trump,Donald Trump,50
+88461,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Arizona,2024-09-27,9/28/24,920,lv,11/5/24,REP,Trump,Donald Trump,51.7
+88462,Emerson,2.9,-1.1,Online Panel/Text-to-Web,North Carolina,2024-09-27,9/28/24,850,lv,11/5/24,REP,Trump,Donald Trump,49.9
+88465,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Pennsylvania,2024-09-27,9/28/24,1000,lv,11/5/24,REP,Trump,Donald Trump,48.8
+88554,McCourtney Institute/YouGov,3,-1.1,Online Panel,NA,2024-09-23,9/27/24,848,lv,11/5/24,REP,Trump,Donald Trump,45
+88407,Siena/NYT,3,-1.5,Live Phone,Nebraska CD-2,2024-09-24,9/26/24,680,rv,11/5/24,REP,Trump,Donald Trump,42
+88407,Siena/NYT,3,-1.5,Live Phone,Nebraska CD-2,2024-09-24,9/26/24,680,rv,11/5/24,REP,Trump,Donald Trump,41
+88407,Siena/NYT,3,-1.5,Live Phone,Nebraska CD-2,2024-09-24,9/26/24,680,lv,11/5/24,REP,Trump,Donald Trump,43
+88407,Siena/NYT,3,-1.5,Live Phone,Nebraska CD-2,2024-09-24,9/26/24,680,lv,11/5/24,REP,Trump,Donald Trump,42
+88393,SurveyUSA,2.8,-1.3,Online Panel,Minnesota,2024-09-23,9/26/24,646,lv,11/5/24,REP,Trump,Donald Trump,44
+88404,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-09-21,9/26/24,688,rv,11/5/24,REP,Trump,Donald Trump,47
+88404,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-09-21,9/26/24,688,rv,11/5/24,REP,Trump,Donald Trump,46
+88404,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-09-21,9/26/24,688,lv,11/5/24,REP,Trump,Donald Trump,47
+88404,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-09-21,9/26/24,688,lv,11/5/24,REP,Trump,Donald Trump,46
+88405,Siena/NYT,3,-1.5,Live Phone,Ohio,2024-09-21,9/26/24,687,rv,11/5/24,REP,Trump,Donald Trump,49
+88405,Siena/NYT,3,-1.5,Live Phone,Ohio,2024-09-21,9/26/24,687,rv,11/5/24,REP,Trump,Donald Trump,47
+88405,Siena/NYT,3,-1.5,Live Phone,Ohio,2024-09-21,9/26/24,687,lv,11/5/24,REP,Trump,Donald Trump,50
+88405,Siena/NYT,3,-1.5,Live Phone,Ohio,2024-09-21,9/26/24,687,lv,11/5/24,REP,Trump,Donald Trump,49
+88406,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-09-21,9/26/24,680,rv,11/5/24,REP,Trump,Donald Trump,47
+88406,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-09-21,9/26/24,680,rv,11/5/24,REP,Trump,Donald Trump,45
+88406,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-09-21,9/26/24,680,lv,11/5/24,REP,Trump,Donald Trump,47
+88406,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-09-21,9/26/24,680,lv,11/5/24,REP,Trump,Donald Trump,46
+88488,Marquette Law School,3,-1.1,Probability Panel,Wisconsin,2024-09-18,9/26/24,882,rv,11/5/24,REP,Trump,Donald Trump,48
+88488,Marquette Law School,3,-1.1,Probability Panel,Wisconsin,2024-09-18,9/26/24,798,lv,11/5/24,REP,Trump,Donald Trump,48
+88488,Marquette Law School,3,-1.1,Probability Panel,Wisconsin,2024-09-18,9/26/24,882,rv,11/5/24,REP,Trump,Donald Trump,44
+88488,Marquette Law School,3,-1.1,Probability Panel,Wisconsin,2024-09-18,9/26/24,798,lv,11/5/24,REP,Trump,Donald Trump,44
+88391,Emerson,2.9,-1.1,Online Panel/Text-to-Web,New York,2024-09-23,9/25/24,1000,lv,11/5/24,REP,Trump,Donald Trump,41.6
+88395,CNN/SSRS,2.8,-0.6,Live Phone/Text-to-Web/Email/Mail-to-Web/Mail-to-Phone,North Carolina,2024-09-20,9/25/24,931,lv,11/5/24,REP,Trump,Donald Trump,48
+88397,CNN/SSRS,2.8,-0.6,Live Phone/Text-to-Web/Email/Mail-to-Web/Mail-to-Phone,Nebraska CD-2,2024-09-20,9/25/24,749,lv,11/5/24,REP,Trump,Donald Trump,42
+88364,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Texas,2024-09-22,9/24/24,950,lv,11/5/24,REP,Trump,Donald Trump,52.3
+88365,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Virginia,2024-09-22,9/24/24,860,lv,11/5/24,REP,Trump,Donald Trump,46.2
+88351,YouGov,3,-1.1,Online Panel,NA,2024-09-21,9/24/24,1424,rv,11/5/24,REP,Trump,Donald Trump,44
+88351,YouGov,3,-1.1,Online Panel,NA,2024-09-21,9/24/24,1220,lv,11/5/24,REP,Trump,Donald Trump,46
+88361,YouGov,3,-1.1,Online Panel,Georgia,2024-09-20,9/24/24,1441,lv,11/5/24,REP,Trump,Donald Trump,51
+88380,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Arizona,2024-09-20,9/24/24,1021,rv,11/5/24,REP,Trump,Donald Trump,49
+88380,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Arizona,2024-09-20,9/24/24,764,lv,11/5/24,REP,Trump,Donald Trump,50
+88380,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Arizona,2024-09-20,9/24/24,1021,rv,11/5/24,REP,Trump,Donald Trump,50
+88380,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Arizona,2024-09-20,9/24/24,764,lv,11/5/24,REP,Trump,Donald Trump,51
+88381,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Georgia,2024-09-20,9/24/24,1006,rv,11/5/24,REP,Trump,Donald Trump,47
+88381,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Georgia,2024-09-20,9/24/24,707,lv,11/5/24,REP,Trump,Donald Trump,48
+88381,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Georgia,2024-09-20,9/24/24,1006,rv,11/5/24,REP,Trump,Donald Trump,48
+88381,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Georgia,2024-09-20,9/24/24,707,lv,11/5/24,REP,Trump,Donald Trump,48
+88402,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,North Carolina,2024-09-20,9/24/24,787,lv,11/5/24,REP,Trump,Donald Trump,49
+88402,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,North Carolina,2024-09-20,9/24/24,991,rv,11/5/24,REP,Trump,Donald Trump,47
+88402,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,North Carolina,2024-09-20,9/24/24,787,lv,11/5/24,REP,Trump,Donald Trump,50
+88402,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,North Carolina,2024-09-20,9/24/24,991,rv,11/5/24,REP,Trump,Donald Trump,48
+88403,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-09-20,9/24/24,775,lv,11/5/24,REP,Trump,Donald Trump,48
+88403,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-09-20,9/24/24,1021,rv,11/5/24,REP,Trump,Donald Trump,46
+88403,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-09-20,9/24/24,775,lv,11/5/24,REP,Trump,Donald Trump,49
+88403,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-09-20,9/24/24,1021,rv,11/5/24,REP,Trump,Donald Trump,48
+88363,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Arizona,2024-09-19,9/24/24,1416,rv,11/5/24,REP,Trump,Donald Trump,50
+88363,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Arizona,2024-09-19,9/24/24,1264,lv,11/5/24,REP,Trump,Donald Trump,50
+88366,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,North Carolina,2024-09-19,9/24/24,1507,rv,11/5/24,REP,Trump,Donald Trump,48
+88366,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,North Carolina,2024-09-19,9/24/24,1348,lv,11/5/24,REP,Trump,Donald Trump,49
+88368,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Georgia,2024-09-19,9/24/24,1420,rv,11/5/24,REP,Trump,Donald Trump,48
+88368,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Georgia,2024-09-19,9/24/24,1220,lv,11/5/24,REP,Trump,Donald Trump,50
+88390,Suffolk,2.9,-1,Live Phone,Arizona,2024-09-19,9/24/24,500,lv,11/5/24,REP,Trump,Donald Trump,48.4
+88338,SurveyUSA,2.8,-1.3,IVR/Online Panel/Text-to-Web,Nebraska,2024-09-20,9/23/24,558,lv,11/5/24,REP,Trump,Donald Trump,56
+88358,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-20,9/22/24,871,rv,11/5/24,REP,Trump,Donald Trump,40.48
+88358,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-20,9/22/24,785,lv,11/5/24,REP,Trump,Donald Trump,44
+88358,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-20,9/22/24,1029,a,11/5/24,REP,Trump,Donald Trump,38
+88325,CNN/SSRS,2.8,-0.6,Probability Panel,NA,2024-09-19,9/22/24,2074,lv,11/5/24,REP,Trump,Donald Trump,47
+88325,CNN/SSRS,2.8,-0.6,Probability Panel,NA,2024-09-19,9/22/24,2074,rv,11/5/24,REP,Trump,Donald Trump,47
+88328,Quinnipiac,2.8,-0.5,Live Phone,NA,2024-09-19,9/22/24,1728,lv,11/5/24,REP,Trump,Donald Trump,48
+88328,Quinnipiac,2.8,-0.5,Live Phone,NA,2024-09-19,9/22/24,1728,lv,11/5/24,REP,Trump,Donald Trump,48
+88276,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-09-17,9/21/24,713,rv,11/5/24,REP,Trump,Donald Trump,49
+88276,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-09-17,9/21/24,713,lv,11/5/24,REP,Trump,Donald Trump,50
+88276,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-09-17,9/21/24,713,rv,11/5/24,REP,Trump,Donald Trump,47
+88276,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-09-17,9/21/24,713,lv,11/5/24,REP,Trump,Donald Trump,48
+88277,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-09-17,9/21/24,682,rv,11/5/24,REP,Trump,Donald Trump,48
+88277,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-09-17,9/21/24,682,lv,11/5/24,REP,Trump,Donald Trump,49
+88277,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-09-17,9/21/24,682,rv,11/5/24,REP,Trump,Donald Trump,46
+88277,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-09-17,9/21/24,682,lv,11/5/24,REP,Trump,Donald Trump,47
+88278,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-09-17,9/21/24,682,rv,11/5/24,REP,Trump,Donald Trump,48
+88278,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-09-17,9/21/24,682,lv,11/5/24,REP,Trump,Donald Trump,49
+88278,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-09-17,9/21/24,682,rv,11/5/24,REP,Trump,Donald Trump,46
+88278,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-09-17,9/21/24,682,lv,11/5/24,REP,Trump,Donald Trump,47
+88274,YouGov,3,-1.1,Online Panel,NA,2024-09-18,9/20/24,3129,lv,11/5/24,REP,Trump,Donald Trump,48
+88339,Muhlenberg,2.8,-1,Live Phone,Pennsylvania,2024-09-16,9/19/24,450,lv,11/5/24,REP,Trump,Donald Trump,48
+88371,University of Massachusetts Lowell/YouGov,2.9,-1,Online Panel,Michigan,2024-09-11,9/19/24,650,lv,11/5/24,REP,Trump,Donald Trump,43
+88372,University of Massachusetts Lowell/YouGov,2.9,-1,Online Panel,Pennsylvania,2024-09-11,9/19/24,800,lv,11/5/24,REP,Trump,Donald Trump,46
+88301,Suffolk,2.9,-1,Live Phone,Michigan,2024-09-16,9/18/24,500,lv,11/5/24,REP,Trump,Donald Trump,45.4
+88235,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Arizona,2024-09-15,9/18/24,868,lv,11/5/24,REP,Trump,Donald Trump,49.8
+88236,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Georgia,2024-09-15,9/18/24,975,lv,11/5/24,REP,Trump,Donald Trump,50.3
+88237,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Michigan,2024-09-15,9/18/24,875,lv,11/5/24,REP,Trump,Donald Trump,49.1
+88238,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Nevada,2024-09-15,9/18/24,895,lv,11/5/24,REP,Trump,Donald Trump,49
+88239,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Pennsylvania,2024-09-15,9/18/24,880,lv,11/5/24,REP,Trump,Donald Trump,49.3
+88240,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,North Carolina,2024-09-15,9/18/24,1000,lv,11/5/24,REP,Trump,Donald Trump,49.3
+88241,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Wisconsin,2024-09-15,9/18/24,1000,lv,11/5/24,REP,Trump,Donald Trump,50.3
+88267,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Pennsylvania,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,46
+88267,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Pennsylvania,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,47
+88275,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Massachusetts,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,32
+88275,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Massachusetts,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,35
+88280,SurveyUSA,2.8,-1.3,Online Panel,New Mexico,2024-09-12,9/18/24,619,lv,11/5/24,REP,Trump,Donald Trump,42
+88286,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Wisconsin,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,45
+88286,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Wisconsin,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,46
+88298,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Connecticut,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,37
+88311,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Rhode Island,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,40
+88311,MassINC Polling Group,2.8,-0.8,Live Phone/Text-to-Web,Rhode Island,2024-09-12,9/18/24,800,lv,11/5/24,REP,Trump,Donald Trump,43
+88208,YouGov,3,-1.1,Online Panel,NA,2024-09-15,9/17/24,1445,rv,11/5/24,REP,Trump,Donald Trump,45
+88232,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Pennsylvania,2024-09-12,9/17/24,1663,rv,11/5/24,REP,Trump,Donald Trump,48
+88232,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Pennsylvania,2024-09-12,9/17/24,1476,lv,11/5/24,REP,Trump,Donald Trump,49
+88233,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Wisconsin,2024-09-12,9/17/24,1312,rv,11/5/24,REP,Trump,Donald Trump,47
+88233,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Wisconsin,2024-09-12,9/17/24,1194,lv,11/5/24,REP,Trump,Donald Trump,49
+88234,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Michigan,2024-09-12,9/17/24,1282,rv,11/5/24,REP,Trump,Donald Trump,47
+88234,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,Michigan,2024-09-12,9/17/24,1138,lv,11/5/24,REP,Trump,Donald Trump,47
+88223,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,NA,2024-09-13,9/16/24,1102,rv,11/5/24,REP,Trump,Donald Trump,48
+88223,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,NA,2024-09-13,9/16/24,876,lv,11/5/24,REP,Trump,Donald Trump,48
+88211,Quinnipiac,2.8,-0.5,Live Phone,Pennsylvania,2024-09-12,9/16/24,1331,lv,11/5/24,REP,Trump,Donald Trump,45
+88211,Quinnipiac,2.8,-0.5,Live Phone,Pennsylvania,2024-09-12,9/16/24,1331,lv,11/5/24,REP,Trump,Donald Trump,46
+88212,Quinnipiac,2.8,-0.5,Live Phone,Michigan,2024-09-12,9/16/24,905,lv,11/5/24,REP,Trump,Donald Trump,45
+88212,Quinnipiac,2.8,-0.5,Live Phone,Michigan,2024-09-12,9/16/24,905,lv,11/5/24,REP,Trump,Donald Trump,46
+88213,Quinnipiac,2.8,-0.5,Live Phone,Wisconsin,2024-09-12,9/16/24,1075,lv,11/5/24,REP,Trump,Donald Trump,47
+88213,Quinnipiac,2.8,-0.5,Live Phone,Wisconsin,2024-09-12,9/16/24,1075,lv,11/5/24,REP,Trump,Donald Trump,48
+88231,The Washington Post,3,-1.2,Live Phone/Text-to-Web,Pennsylvania,2024-09-12,9/16/24,1003,lv,11/5/24,REP,Trump,Donald Trump,47
+88231,The Washington Post,3,-1.2,Live Phone/Text-to-Web,Pennsylvania,2024-09-12,9/16/24,1003,lv,11/5/24,REP,Trump,Donald Trump,48
+88228,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-11,9/16/24,2437,lv,11/5/24,REP,Trump,Donald Trump,47
+88228,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-11,9/16/24,2437,rv,11/5/24,REP,Trump,Donald Trump,47
+88228,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-11,9/16/24,2437,rv,11/5/24,REP,Trump,Donald Trump,46
+88228,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-11,9/16/24,2437,lv,11/5/24,REP,Trump,Donald Trump,46
+88242,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-09-11,9/16/24,1082,rv,11/5/24,REP,Trump,Donald Trump,46
+88242,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-09-11,9/16/24,1082,lv,11/5/24,REP,Trump,Donald Trump,46
+88242,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-09-11,9/16/24,1082,rv,11/5/24,REP,Trump,Donald Trump,45
+88242,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-09-11,9/16/24,1082,lv,11/5/24,REP,Trump,Donald Trump,45
+88184,Suffolk,2.9,-1,Live Phone,Pennsylvania,2024-09-11,9/14/24,500,lv,11/5/24,REP,Trump,Donald Trump,45.6
+88187,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Maryland,2024-09-12,9/13/24,890,lv,11/5/24,REP,Trump,Donald Trump,33.3
+88188,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Missouri,2024-09-12,9/13/24,850,lv,11/5/24,REP,Trump,Donald Trump,55.2
+88189,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Indiana,2024-09-12,9/13/24,1000,lv,11/5/24,REP,Trump,Donald Trump,57.9
+88170,YouGov,3,-1.1,Online Panel,NA,2024-09-11,9/13/24,1177,rv,11/5/24,REP,Trump,Donald Trump,45
+88170,YouGov,3,-1.1,Online Panel,NA,2024-09-11,9/13/24,1090,lv,11/5/24,REP,Trump,Donald Trump,46
+88170,YouGov,3,-1.1,Online Panel,NA,2024-09-11,9/13/24,1175,rv,11/5/24,REP,Trump,Donald Trump,44
+88170,YouGov,3,-1.1,Online Panel,NA,2024-09-11,9/13/24,1090,lv,11/5/24,REP,Trump,Donald Trump,45
+88177,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/13/24,3276,a,11/5/24,REP,Trump,Donald Trump,46
+88177,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/13/24,2772,rv,11/5/24,REP,Trump,Donald Trump,47
+88177,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/13/24,2196,lv,11/5/24,REP,Trump,Donald Trump,46
+88177,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/13/24,3276,a,11/5/24,REP,Trump,Donald Trump,45
+88177,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/13/24,2772,rv,11/5/24,REP,Trump,Donald Trump,46
+88177,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/13/24,2196,lv,11/5/24,REP,Trump,Donald Trump,46
+88144,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/12/24,1405,rv,11/5/24,REP,Trump,Donald Trump,42
+88144,Ipsos,2.8,-0.9,Probability Panel,NA,2024-09-11,9/12/24,1690,a,11/5/24,REP,Trump,Donald Trump,39
+88179,Selzer,2.8,-1.2,Live Phone,Iowa,2024-09-08,9/11/24,656,lv,11/5/24,REP,Trump,Donald Trump,47
+88130,YouGov,3,-1.1,Online Panel,NA,2024-09-08,9/10/24,1464,rv,11/5/24,REP,Trump,Donald Trump,45
+88203,Data Orbital,2.9,-0.9,Live Phone/Text-to-Web,Arizona,2024-09-07,9/9/24,550,lv,11/5/24,REP,Trump,Donald Trump,46.2
+88095,Quinnipiac,2.8,-0.5,Live Phone,North Carolina,2024-09-04,9/8/24,940,lv,11/5/24,REP,Trump,Donald Trump,46
+88095,Quinnipiac,2.8,-0.5,Live Phone,North Carolina,2024-09-04,9/8/24,940,lv,11/5/24,REP,Trump,Donald Trump,47
+88101,Quinnipiac,2.8,-0.5,Live Phone,Georgia,2024-09-04,9/8/24,969,lv,11/5/24,REP,Trump,Donald Trump,49
+88101,Quinnipiac,2.8,-0.5,Live Phone,Georgia,2024-09-04,9/8/24,969,lv,11/5/24,REP,Trump,Donald Trump,49
+88083,SurveyUSA,2.8,-1.3,Online Panel,North Carolina,2024-09-04,9/7/24,676,lv,11/5/24,REP,Trump,Donald Trump,46
+88070,YouGov,3,-1.1,Online Panel,Michigan,2024-09-03,9/6/24,1077,lv,11/5/24,REP,Trump,Donald Trump,49
+88071,YouGov,3,-1.1,Online Panel,Pennsylvania,2024-09-03,9/6/24,1078,lv,11/5/24,REP,Trump,Donald Trump,50
+88072,YouGov,3,-1.1,Online Panel,Wisconsin,2024-09-03,9/6/24,946,lv,11/5/24,REP,Trump,Donald Trump,49
+88073,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-03,9/6/24,1695,lv,11/5/24,REP,Trump,Donald Trump,48
+88073,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-03,9/6/24,1695,lv,11/5/24,REP,Trump,Donald Trump,47
+88073,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-03,9/6/24,1695,rv,11/5/24,REP,Trump,Donald Trump,48
+88073,Siena/NYT,3,-1.5,Live Phone,NA,2024-09-03,9/6/24,1695,rv,11/5/24,REP,Trump,Donald Trump,46
+88063,Emerson,2.9,-1.1,Online Panel/Text-to-Web,California,2024-09-03,9/5/24,815,lv,11/5/24,REP,Trump,Donald Trump,38
+88064,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Florida,2024-09-03,9/5/24,815,lv,11/5/24,REP,Trump,Donald Trump,51.1
+88065,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Texas,2024-09-03,9/5/24,845,lv,11/5/24,REP,Trump,Donald Trump,50.9
+88066,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Ohio,2024-09-03,9/5/24,945,lv,11/5/24,REP,Trump,Donald Trump,54.3
+88103,Marist,2.9,-0.9,Live Phone/Online Panel/Text,NA,2024-09-03,9/5/24,1413,rv,11/5/24,REP,Trump,Donald Trump,48
+88135,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-08-28,9/5/24,822,rv,11/5/24,REP,Trump,Donald Trump,48
+88135,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-08-28,9/5/24,738,lv,11/5/24,REP,Trump,Donald Trump,48
+88135,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-08-28,9/5/24,822,rv,11/5/24,REP,Trump,Donald Trump,43
+88135,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-08-28,9/5/24,738,lv,11/5/24,REP,Trump,Donald Trump,43
+88035,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,NA,2024-09-03,9/4/24,1000,lv,11/5/24,REP,Trump,Donald Trump,47.6
+88021,YouGov,3,-1.1,Online Panel,NA,2024-09-01,9/3/24,1389,rv,11/5/24,REP,Trump,Donald Trump,45
+88067,YouGov,3,-1.1,Online Panel,Texas,2024-08-23,8/31/24,1200,rv,11/5/24,REP,Trump,Donald Trump,49
+88067,YouGov,3,-1.1,Online Panel,Texas,2024-08-23,8/31/24,1200,rv,11/5/24,REP,Trump,Donald Trump,49
+87988,SurveyUSA,2.8,-1.3,Online Panel,Minnesota,2024-08-27,8/29/24,635,lv,11/5/24,REP,Trump,Donald Trump,43
+88015,CNN/SSRS,2.8,-0.6,Probability Panel,Arizona,2024-08-23,8/29/24,682,lv,11/5/24,REP,Trump,Donald Trump,49
+88016,CNN/SSRS,2.8,-0.6,Probability Panel,Georgia,2024-08-23,8/29/24,617,lv,11/5/24,REP,Trump,Donald Trump,47
+88017,CNN/SSRS,2.8,-0.6,Probability Panel,Michigan,2024-08-23,8/29/24,708,lv,11/5/24,REP,Trump,Donald Trump,43
+88018,CNN/SSRS,2.8,-0.6,Probability Panel,Nevada,2024-08-23,8/29/24,626,lv,11/5/24,REP,Trump,Donald Trump,47
+88019,CNN/SSRS,2.8,-0.6,Probability Panel,Pennsylvania,2024-08-23,8/29/24,789,lv,11/5/24,REP,Trump,Donald Trump,47
+88020,CNN/SSRS,2.8,-0.6,Probability Panel,Wisconsin,2024-08-23,8/29/24,976,lv,11/5/24,REP,Trump,Donald Trump,44
+87935,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Arizona,2024-08-25,8/28/24,720,lv,11/5/24,REP,Trump,Donald Trump,51.2
+87936,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Michigan,2024-08-25,8/28/24,800,lv,11/5/24,REP,Trump,Donald Trump,47.6
+87937,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Nevada,2024-08-25,8/28/24,1168,lv,11/5/24,REP,Trump,Donald Trump,48.8
+87938,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Pennsylvania,2024-08-25,8/28/24,950,lv,11/5/24,REP,Trump,Donald Trump,49.4
+87939,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Wisconsin,2024-08-25,8/28/24,850,lv,11/5/24,REP,Trump,Donald Trump,49.8
+87943,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,North Carolina,2024-08-25,8/28/24,775,lv,11/5/24,REP,Trump,Donald Trump,49.9
+87944,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Georgia,2024-08-25,8/28/24,800,lv,11/5/24,REP,Trump,Donald Trump,49
+87945,Suffolk,2.9,-1,Live Phone,NA,2024-08-25,8/28/24,1000,lv,11/5/24,REP,Trump,Donald Trump,43.3
+87946,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-21,8/28/24,3562,rv,11/5/24,REP,Trump,Donald Trump,40
+87946,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-21,8/28/24,4253,a,11/5/24,REP,Trump,Donald Trump,38
+87946,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-21,8/28/24,3562,rv,11/5/24,REP,Trump,Donald Trump,41
+87946,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-21,8/28/24,4253,a,11/5/24,REP,Trump,Donald Trump,36
+87920,YouGov,3,-1.1,Online Panel,NA,2024-08-25,8/27/24,1368,rv,11/5/24,REP,Trump,Donald Trump,45
+87949,Quinnipiac,2.8,-0.5,Live Phone,NA,2024-08-23,8/27/24,1611,lv,11/5/24,REP,Trump,Donald Trump,47
+87949,Quinnipiac,2.8,-0.5,Live Phone,NA,2024-08-23,8/27/24,1611,lv,11/5/24,REP,Trump,Donald Trump,48
+87999,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-23,8/27/24,2496,a,11/5/24,REP,Trump,Donald Trump,46
+87999,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-23,8/27/24,NA,rv,11/5/24,REP,Trump,Donald Trump,46
+87999,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-23,8/27/24,NA,lv,11/5/24,REP,Trump,Donald Trump,46
+87999,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-23,8/27/24,2496,a,11/5/24,REP,Trump,Donald Trump,45
+87999,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-23,8/27/24,NA,rv,11/5/24,REP,Trump,Donald Trump,45
+88000,SurveyUSA,2.8,-1.3,IVR/Online Panel/Text-to-Web,Nebraska,2024-08-23,8/27/24,1293,rv,11/5/24,REP,Trump,Donald Trump,54
+88001,SurveyUSA,2.8,-1.3,IVR/Online Panel/Text-to-Web,Nebraska CD-2,2024-08-23,8/27/24,507,rv,11/5/24,REP,Trump,Donald Trump,42
+87930,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Arizona,2024-08-23,8/26/24,1014,rv,11/5/24,REP,Trump,Donald Trump,47
+87930,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Arizona,2024-08-23,8/26/24,1014,rv,11/5/24,REP,Trump,Donald Trump,49
+87931,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Georgia,2024-08-23,8/26/24,1014,rv,11/5/24,REP,Trump,Donald Trump,46
+87931,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Georgia,2024-08-23,8/26/24,1014,rv,11/5/24,REP,Trump,Donald Trump,48
+87932,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Nevada,2024-08-23,8/26/24,1026,rv,11/5/24,REP,Trump,Donald Trump,46
+87932,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Nevada,2024-08-23,8/26/24,1026,rv,11/5/24,REP,Trump,Donald Trump,48
+87933,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,North Carolina,2024-08-23,8/26/24,999,rv,11/5/24,REP,Trump,Donald Trump,48
+87933,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,North Carolina,2024-08-23,8/26/24,999,rv,11/5/24,REP,Trump,Donald Trump,50
+87918,YouGov,3,-1.1,Online Panel,NA,2024-08-22,8/26/24,1194,rv,11/5/24,REP,Trump,Donald Trump,45
+87918,YouGov,3,-1.1,Online Panel,NA,2024-08-22,8/26/24,1197,rv,11/5/24,REP,Trump,Donald Trump,46
+87918,YouGov,3,-1.1,Online Panel,NA,2024-08-22,8/26/24,1788,a,11/5/24,REP,Trump,Donald Trump,36
+87918,YouGov,3,-1.1,Online Panel,NA,2024-08-22,8/26/24,1200,rv,11/5/24,REP,Trump,Donald Trump,42
+88080,YouGov,3,-1.1,Online Panel,Pennsylvania,2024-08-15,8/23/24,500,a,11/5/24,REP,Trump,Donald Trump,42.5
+88080,YouGov,3,-1.1,Online Panel,Pennsylvania,2024-08-15,8/23/24,NA,lv,11/5/24,REP,Trump,Donald Trump,47
+88080,YouGov,3,-1.1,Online Panel,Pennsylvania,2024-08-15,8/23/24,500,a,11/5/24,REP,Trump,Donald Trump,41
+88080,YouGov,3,-1.1,Online Panel,Pennsylvania,2024-08-15,8/23/24,NA,lv,11/5/24,REP,Trump,Donald Trump,46
+88081,YouGov,3,-1.1,Online Panel,Wisconsin,2024-08-15,8/23/24,500,a,11/5/24,REP,Trump,Donald Trump,42
+88081,YouGov,3,-1.1,Online Panel,Wisconsin,2024-08-15,8/23/24,NA,lv,11/5/24,REP,Trump,Donald Trump,46
+88081,YouGov,3,-1.1,Online Panel,Wisconsin,2024-08-15,8/23/24,500,a,11/5/24,REP,Trump,Donald Trump,40
+88081,YouGov,3,-1.1,Online Panel,Wisconsin,2024-08-15,8/23/24,NA,lv,11/5/24,REP,Trump,Donald Trump,45
+88082,YouGov,3,-1.1,Online Panel,Michigan,2024-08-15,8/23/24,500,a,11/5/24,REP,Trump,Donald Trump,43.5
+88082,YouGov,3,-1.1,Online Panel,Michigan,2024-08-15,8/23/24,NA,lv,11/5/24,REP,Trump,Donald Trump,48
+88082,YouGov,3,-1.1,Online Panel,Michigan,2024-08-15,8/23/24,500,a,11/5/24,REP,Trump,Donald Trump,41.5
+88082,YouGov,3,-1.1,Online Panel,Michigan,2024-08-15,8/23/24,NA,lv,11/5/24,REP,Trump,Donald Trump,46
+87882,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,New Mexico,2024-08-20,8/22/24,965,rv,11/5/24,REP,Trump,Donald Trump,46.4
+87882,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,New Mexico,2024-08-20,8/22/24,965,rv,11/5/24,REP,Trump,Donald Trump,40.2
+88324,YouGov,3,-1.1,Online Panel,NA,2024-08-15,8/22/24,1835,a,11/5/24,REP,Trump,Donald Trump,40
+87870,SurveyUSA/High Point University,2.8,-1.3,Online Panel,North Carolina,2024-08-19,8/21/24,1053,rv,11/5/24,REP,Trump,Donald Trump,45
+87870,SurveyUSA/High Point University,2.8,-1.3,Online Panel,North Carolina,2024-08-19,8/21/24,941,lv,11/5/24,REP,Trump,Donald Trump,47
+87853,YouGov,3,-1.1,Online Panel,NA,2024-08-17,8/20/24,1371,rv,11/5/24,REP,Trump,Donald Trump,43
+87810,YouGov,3,-1.1,Online Panel,NA,2024-08-14,8/16/24,3253,lv,11/5/24,REP,Trump,Donald Trump,48
+87810,YouGov,3,-1.1,Online Panel,NA,2024-08-14,8/16/24,3253,lv,11/5/24,REP,Trump,Donald Trump,47
+87934,YouGov,3,-1.1,Online Panel,Missouri,2024-08-08,8/16/24,900,lv,11/5/24,REP,Trump,Donald Trump,54
+87807,Siena/NYT,3,-1.5,Live Phone,Nevada,2024-08-12,8/15/24,677,rv,11/5/24,REP,Trump,Donald Trump,48
+87807,Siena/NYT,3,-1.5,Live Phone,Nevada,2024-08-12,8/15/24,677,lv,11/5/24,REP,Trump,Donald Trump,48
+87807,Siena/NYT,3,-1.5,Live Phone,Nevada,2024-08-12,8/15/24,677,rv,11/5/24,REP,Trump,Donald Trump,45
+87807,Siena/NYT,3,-1.5,Live Phone,Nevada,2024-08-12,8/15/24,677,lv,11/5/24,REP,Trump,Donald Trump,46
+87806,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-08-08,8/15/24,677,rv,11/5/24,REP,Trump,Donald Trump,45
+87806,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-08-08,8/15/24,677,lv,11/5/24,REP,Trump,Donald Trump,45
+87806,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-08-08,8/15/24,677,rv,11/5/24,REP,Trump,Donald Trump,42
+87806,Siena/NYT,3,-1.5,Live Phone,Arizona,2024-08-08,8/15/24,677,lv,11/5/24,REP,Trump,Donald Trump,43
+87797,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Pennsylvania,2024-08-13,8/14/24,1000,lv,11/5/24,REP,Trump,Donald Trump,50.7
+87797,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Pennsylvania,2024-08-13,8/14/24,1000,lv,11/5/24,REP,Trump,Donald Trump,47.4
+87781,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,NA,2024-08-12,8/14/24,1000,lv,11/5/24,REP,Trump,Donald Trump,47.7
+87781,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,NA,2024-08-12,8/14/24,1000,lv,11/5/24,REP,Trump,Donald Trump,43.5
+87808,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-08-09,8/14/24,655,rv,11/5/24,REP,Trump,Donald Trump,46
+87808,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-08-09,8/14/24,655,lv,11/5/24,REP,Trump,Donald Trump,47
+87808,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-08-09,8/14/24,655,rv,11/5/24,REP,Trump,Donald Trump,42
+87808,Siena/NYT,3,-1.5,Live Phone,North Carolina,2024-08-09,8/14/24,655,lv,11/5/24,REP,Trump,Donald Trump,44
+87809,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-08-09,8/14/24,661,rv,11/5/24,REP,Trump,Donald Trump,51
+87809,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-08-09,8/14/24,661,lv,11/5/24,REP,Trump,Donald Trump,50
+87809,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-08-09,8/14/24,661,rv,11/5/24,REP,Trump,Donald Trump,47
+87809,Siena/NYT,3,-1.5,Live Phone,Georgia,2024-08-09,8/14/24,661,lv,11/5/24,REP,Trump,Donald Trump,47
+87760,YouGov,3,-1.1,Online Panel,NA,2024-08-11,8/13/24,1407,rv,11/5/24,REP,Trump,Donald Trump,44
+87794,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-09,8/13/24,2336,a,11/5/24,REP,Trump,Donald Trump,45
+87794,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-09,8/13/24,1975,rv,11/5/24,REP,Trump,Donald Trump,45
+87794,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-09,8/13/24,1505,lv,11/5/24,REP,Trump,Donald Trump,45
+87794,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-09,8/13/24,2336,a,11/5/24,REP,Trump,Donald Trump,44
+87794,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-09,8/13/24,1975,rv,11/5/24,REP,Trump,Donald Trump,44
+87780,Beacon/Shaw,2.8,-1.1,Live Phone,NA,2024-08-09,8/12/24,1105,rv,11/5/24,REP,Trump,Donald Trump,45
+87780,Beacon/Shaw,2.8,-1.1,Live Phone,NA,2024-08-09,8/12/24,1105,rv,11/5/24,REP,Trump,Donald Trump,50
+87777,Quinnipiac,2.8,-0.5,Live Phone,Pennsylvania,2024-08-08,8/12/24,1738,lv,11/5/24,REP,Trump,Donald Trump,45
+87777,Quinnipiac,2.8,-0.5,Live Phone,Pennsylvania,2024-08-08,8/12/24,1738,lv,11/5/24,REP,Trump,Donald Trump,47
+87744,Suffolk,2.9,-1,Live Phone,Florida,2024-08-07,8/11/24,500,lv,11/5/24,REP,Trump,Donald Trump,46.8
+87721,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-08-06,8/9/24,693,rv,11/5/24,REP,Trump,Donald Trump,46
+87721,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-08-06,8/9/24,693,lv,11/5/24,REP,Trump,Donald Trump,46
+87721,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-08-06,8/9/24,693,rv,11/5/24,REP,Trump,Donald Trump,43
+87721,Siena/NYT,3,-1.5,Live Phone,Pennsylvania,2024-08-06,8/9/24,693,lv,11/5/24,REP,Trump,Donald Trump,44
+87723,YouGov Blue,3,-1.1,Online Panel,North Carolina,2024-08-05,8/9/24,802,rv,11/5/24,REP,Trump,Donald Trump,46
+87719,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-08-05,8/8/24,619,rv,11/5/24,REP,Trump,Donald Trump,48
+87719,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-08-05,8/8/24,619,lv,11/5/24,REP,Trump,Donald Trump,46
+87719,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-08-05,8/8/24,619,rv,11/5/24,REP,Trump,Donald Trump,43
+87719,Siena/NYT,3,-1.5,Live Phone,Michigan,2024-08-05,8/8/24,619,lv,11/5/24,REP,Trump,Donald Trump,43
+87720,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-08-05,8/8/24,661,rv,11/5/24,REP,Trump,Donald Trump,46
+87720,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-08-05,8/8/24,661,lv,11/5/24,REP,Trump,Donald Trump,46
+87720,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-08-05,8/8/24,661,rv,11/5/24,REP,Trump,Donald Trump,42
+87720,Siena/NYT,3,-1.5,Live Phone,Wisconsin,2024-08-05,8/8/24,661,lv,11/5/24,REP,Trump,Donald Trump,43
+87709,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-02,8/7/24,1342,rv,11/5/24,REP,Trump,Donald Trump,37
+87709,Ipsos,2.8,-0.9,Probability Panel,NA,2024-08-02,8/7/24,1342,rv,11/5/24,REP,Trump,Donald Trump,47
+87700,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Montana,2024-08-05,8/6/24,1000,lv,11/5/24,REP,Trump,Donald Trump,57.5
+87700,Emerson,2.9,-1.1,Online Panel/Text-to-Web,Montana,2024-08-05,8/6/24,1000,lv,11/5/24,REP,Trump,Donald Trump,53.5
+87696,YouGov,3,-1.1,Online Panel,NA,2024-08-04,8/6/24,1413,rv,11/5/24,REP,Trump,Donald Trump,43
+87677,SurveyUSA,2.8,-1.3,Online Panel,NA,2024-08-02,8/5/24,1510,lv,11/5/24,REP,Trump,Donald Trump,45
+87679,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,NA,2024-08-01,8/4/24,1513,rv,11/5/24,REP,Trump,Donald Trump,48
+87679,Marist,2.9,-0.9,Live Phone/Online Panel/Text-to-Web,NA,2024-08-01,8/4/24,1513,rv,11/5/24,REP,Trump,Donald Trump,45
+87663,YouGov,3,-1.1,Online Panel,NA,2024-07-30,8/2/24,3092,lv,11/5/24,REP,Trump,Donald Trump,49
+87663,YouGov,3,-1.1,Online Panel,NA,2024-07-30,8/2/24,3092,lv,11/5/24,REP,Trump,Donald Trump,47
+87698,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-07-24,8/1/24,877,rv,11/5/24,REP,Trump,Donald Trump,50
+87698,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-07-24,8/1/24,801,lv,11/5/24,REP,Trump,Donald Trump,49
+87698,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-07-24,8/1/24,877,rv,11/5/24,REP,Trump,Donald Trump,43
+87698,Marquette Law School,3,-1.1,Live Phone/Email,Wisconsin,2024-07-24,8/1/24,801,lv,11/5/24,REP,Trump,Donald Trump,45
+87699,Marquette Law School,3,-1.1,Probability Panel,NA,2024-07-24,8/1/24,879,rv,11/5/24,REP,Trump,Donald Trump,48
+87699,Marquette Law School,3,-1.1,Probability Panel,NA,2024-07-24,8/1/24,683,lv,11/5/24,REP,Trump,Donald Trump,47
+87699,Marquette Law School,3,-1.1,Probability Panel,NA,2024-07-24,8/1/24,879,rv,11/5/24,REP,Trump,Donald Trump,41
+87699,Marquette Law School,3,-1.1,Probability Panel,NA,2024-07-24,8/1/24,683,lv,11/5/24,REP,Trump,Donald Trump,42
+87628,YouGov,3,-1.1,Online Panel,NA,2024-07-27,7/30/24,1434,rv,11/5/24,REP,Trump,Donald Trump,44
+87630,Ipsos,2.8,-0.9,Probability Panel,NA,2024-07-26,7/28/24,876,rv,11/5/24,REP,Trump,Donald Trump,42
+87635,Emerson,2.9,-1.1,Online Panel/Text-to-Web,New Hampshire,2024-07-26,7/28/24,1000,rv,11/5/24,REP,Trump,Donald Trump,47.6
+87635,Emerson,2.9,-1.1,Online Panel/Text-to-Web,New Hampshire,2024-07-26,7/28/24,1000,rv,11/5/24,REP,Trump,Donald Trump,41.4
+87612,U. North Florida,2.8,-0.6,Live Phone/Text-to-Web,Florida,2024-07-24,7/27/24,774,lv,11/5/24,REP,Trump,Donald Trump,49
+87614,Ipsos,2.8,-0.9,Probability Panel,NA,2024-07-24,7/25/24,1238,a,11/5/24,REP,Trump,Donald Trump,38
+87581,SurveyUSA,2.8,-1.3,Online Panel,Minnesota,2024-07-23,7/25/24,656,lv,11/5/24,REP,Trump,Donald Trump,40
+87557,Siena/NYT,3,-1.5,Live Phone,NA,2024-07-22,7/24/24,1142,rv,11/5/24,REP,Trump,Donald Trump,48
+87557,Siena/NYT,3,-1.5,Live Phone,NA,2024-07-22,7/24/24,1142,lv,11/5/24,REP,Trump,Donald Trump,48
+87557,Siena/NYT,3,-1.5,Live Phone,NA,2024-07-22,7/24/24,1142,rv,11/5/24,REP,Trump,Donald Trump,42
+87557,Siena/NYT,3,-1.5,Live Phone,NA,2024-07-22,7/24/24,1142,lv,11/5/24,REP,Trump,Donald Trump,43
+87582,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Wisconsin,2024-07-22,7/24/24,1046,rv,11/5/24,REP,Trump,Donald Trump,46
+87582,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Wisconsin,2024-07-22,7/24/24,1046,rv,11/5/24,REP,Trump,Donald Trump,50
+87582,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Wisconsin,2024-07-22,7/24/24,1046,rv,11/5/24,REP,Trump,Donald Trump,50
+87582,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Wisconsin,2024-07-22,7/24/24,1046,rv,11/5/24,REP,Trump,Donald Trump,49
+87583,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-07-22,7/24/24,1034,rv,11/5/24,REP,Trump,Donald Trump,43
+87583,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-07-22,7/24/24,1034,rv,11/5/24,REP,Trump,Donald Trump,49
+87583,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-07-22,7/24/24,1034,rv,11/5/24,REP,Trump,Donald Trump,49
+87583,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Pennsylvania,2024-07-22,7/24/24,1034,rv,11/5/24,REP,Trump,Donald Trump,44
+87584,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Minnesota,2024-07-22,7/24/24,1071,rv,11/5/24,REP,Trump,Donald Trump,41
+87584,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Minnesota,2024-07-22,7/24/24,1071,rv,11/5/24,REP,Trump,Donald Trump,46
+87584,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Minnesota,2024-07-22,7/24/24,1071,rv,11/5/24,REP,Trump,Donald Trump,46
+87584,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Minnesota,2024-07-22,7/24/24,1071,rv,11/5/24,REP,Trump,Donald Trump,45
+87585,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Michigan,2024-07-22,7/24/24,1012,rv,11/5/24,REP,Trump,Donald Trump,45
+87585,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Michigan,2024-07-22,7/24/24,1012,rv,11/5/24,REP,Trump,Donald Trump,49
+87585,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Michigan,2024-07-22,7/24/24,1012,rv,11/5/24,REP,Trump,Donald Trump,46
+87585,Beacon/Shaw,2.8,-1.1,Live Phone/Text-to-Web,Michigan,2024-07-22,7/24/24,1012,rv,11/5/24,REP,Trump,Donald Trump,48
+87530,Ipsos,2.8,-0.9,Probability Panel,NA,2024-07-22,7/23/24,1241,a,11/5/24,REP,Trump,Donald Trump,39
+87530,Ipsos,2.8,-0.9,Probability Panel,NA,2024-07-22,7/23/24,1018,rv,11/5/24,REP,Trump,Donald Trump,42
+87530,Ipsos,2.8,-0.9,Probability Panel,NA,2024-07-22,7/23/24,1241,a,11/5/24,REP,Trump,Donald Trump,34
+87530,Ipsos,2.8,-0.9,Probability Panel,NA,2024-07-22,7/23/24,1018,rv,11/5/24,REP,Trump,Donald Trump,38
+87542,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Arizona,2024-07-22,7/23/24,800,rv,11/5/24,REP,Trump,Donald Trump,52.6
+87542,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Arizona,2024-07-22,7/23/24,800,rv,11/5/24,REP,Trump,Donald Trump,47.5
+87543,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Georgia,2024-07-22,7/23/24,800,rv,11/5/24,REP,Trump,Donald Trump,51.1
+87543,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Georgia,2024-07-22,7/23/24,800,rv,11/5/24,REP,Trump,Donald Trump,45.9
+87544,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Michigan,2024-07-22,7/23/24,800,rv,11/5/24,REP,Trump,Donald Trump,50.9
+87544,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Michigan,2024-07-22,7/23/24,800,rv,11/5/24,REP,Trump,Donald Trump,44.1
+87545,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Wisconsin,2024-07-22,7/23/24,845,rv,11/5/24,REP,Trump,Donald Trump,49.4
+87545,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Wisconsin,2024-07-22,7/23/24,845,rv,11/5/24,REP,Trump,Donald Trump,44.9
+87546,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Pennsylvania,2024-07-22,7/23/24,850,rv,11/5/24,REP,Trump,Donald Trump,51.1
+87546,Emerson,2.9,-1.1,IVR/Online Panel/Text-to-Web,Pennsylvania,2024-07-22,7/23/24,850,rv,11/5/24,REP,Trump,Donald Trump,46.1
+87555,YouGov,3,-1.1,Online Panel,NA,2024-07-22,7/23/24,1155,lv,11/5/24,REP,Trump,Donald Trump,46
+87536,YouGov,3,-1.1,Online Panel,NA,2024-07-21,7/23/24,1435,rv,11/5/24,REP,Trump,Donald Trump,44
+87531,Marist,2.9,-0.9,Online Panel,NA,2024-07-22,7/22/24,1117,rv,11/5/24,REP,Trump,Donald Trump,46
+87531,Marist,2.9,-0.9,Online Panel,NA,2024-07-22,7/22/24,1117,rv,11/5/24,REP,Trump,Donald Trump,42
