@@ -20,7 +20,8 @@ analysis_data <- raw_data |>
                  filter(candidate_name == "Donald Trump", 
                         numeric_grade >= 2.8, 
                         pollscore < 0, 
-                        start_date >= as.Date("2024-07-21")) |>
+                        start_date >= as.Date("2024-07-21"),
+                        pollster %in% c("Emerson", "Siena/NYT", "YouGov")) |>
                  select(poll_id, pollster, numeric_grade, pollscore, methodology,
                         state, start_date, end_date, sample_size, population, 
                         election_date, party, answer, candidate_name, pct) 
