@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Cleans raw polling data to prepare for testing and analysis
+# Purpose: Cleans raw polling data to prepare for testing and analysis.
 # Author: Sameeck Bhatia
 # Date: 20 October 2024
 # Contact: sameeck.bhatia@mail.utoronto.ca

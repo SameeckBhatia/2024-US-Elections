@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Downloads the data from the FiveThirtyEight website and saves it
+# Purpose: Downloads the data from the FiveThirtyEight website and saves it.
 # Author: Sameeck Bhatia
 # Date: 20 October 2024
 # Contact: sameeck.bhatia@mail.utoronto.ca
