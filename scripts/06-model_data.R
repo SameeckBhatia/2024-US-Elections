@@ -1,11 +1,14 @@
 #### Preamble ####
-# Purpose: Models... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Models popular vote for Trump from election data.
+# Author: Sameeck Bhatia
+# Date: 21 October, 2024
+# Contact: sameeck.bhatia@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites:
+#   - The `tidyverse` package must be installed and loaded
+#   - The `rstanarm` package must be installed and loaded
+#   - 03-clean_data.R must have been run
+# Any other information needed? None
 
 
 #### Workspace setup ####
@@ -16,22 +19,23 @@ library(rstanarm)
 analysis_data <- read_csv("data/analysis_data/analysis_data.csv")
 
 ### Model data ####
-first_model <-
-  stan_glm(
-    formula = flying_time ~ length + width,
-    data = analysis_data,
-    family = gaussian(),
-    prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
-    prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
-    prior_aux = exponential(rate = 1, autoscale = TRUE),
-    seed = 853
-  )
+priors <- normal(0.5, 0.02, autoscale = TRUE)
+
+election_model <- stan_glm(
+  formula = pct ~ pollster + numeric_grade + pollscore + sample_size + population,
+  data = analysis_data,
+  family = gaussian(link = "identity"),
+  prior = priors,
+  prior_intercept = priors,
+  cores = 4,
+  iter = 2000,
+  adapt_delta = 0.95,
+  seed = 12
+)
 
 
 #### Save model ####
 saveRDS(
-  first_model,
-  file = "models/first_model.rds"
+  election_model,
+  file = "models/election_model.rds"
 )
-
-
