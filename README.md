@@ -21,10 +21,36 @@ The repo is structured as:
 
 Aspects of the code were written with the help of the auto-complete tool, Codriver. The abstract and introduction were written with the help of ChatHorse and the entire chat history is available in inputs/llms/usage.txt.
 
-## Some checks
-
-- [ ] Change the rproj file name so that it's not starter_folder.Rproj
-- [ ] Change the README title so that it's not Starter folder
-- [ ] Remove files that you're not using
-- [ ] Update comments in R scripts
-- [ ] Remove this checklist
+## TO-DO:
+- [ ] R citation - properly cite R in data section and references
+- [ ] Data citation - cite 538 data
+- [ ] Does not look like class paper - repo name, readme, paper, comments
+- [ ] LLM usage - add txt in llm folder
+- [x] Title
+- [x] Author, date, and repo
+- [ ] Abstract - need to write result/finding
+- [ ] Introduction - need to write what was found and why its important; update model used
+- [x] Estimand
+- [ ] Data
+- [ ] Measurement
+- [ ] Model
+- [ ] Results
+- [ ] Discussion
+- [ ] Prose
+- [ ] Cross-references
+- [ ] Captions
+- [ ] Graphs/tables/etc
+- [ ] Idealized methodology
+- [ ] Idealized survey
+- [ ] Pollster methodology overview and evaluation
+- [ ] Referencing
+- [ ] Commits
+- [x] Sketches
+- [x] Simulation
+- [x] Simulation tests
+- [ ] Actual tests
+- [ ] Parquet
+- [ ] Reproducibility
+- [ ] Miscellaneous
+- [ ] finalize readme
+- [ ] remove this to-do
