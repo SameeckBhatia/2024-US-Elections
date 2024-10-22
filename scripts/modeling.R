@@ -19,12 +19,12 @@ library(rstanarm)
 analysis_data <- read_csv("data/analysis_data/analysis_data.csv")
 
 ### Model data ####
-priors <- normal(0.5, 0.02, autoscale = TRUE)
+priors <- normal(50, 2)
 
 election_model <- stan_glm(
   formula = pct ~ pollster + numeric_grade + pollscore + sample_size + population,
   data = analysis_data,
-  family = gaussian(link = "identity"),
+  family = gaussian(),
   prior = priors,
   prior_intercept = priors,
   cores = 4,
