@@ -6,6 +6,7 @@
 # License: MIT
 # Pre-requisites:
 #   - The `tidyverse` package must be installed and loaded
+#   - The `arrow` package must be installed and loaded
 #   - gather.R must have been run
 # Any other information needed? None
 

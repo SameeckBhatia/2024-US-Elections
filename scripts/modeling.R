@@ -7,6 +7,7 @@
 # Pre-requisites:
 #   - The `tidyverse` package must be installed and loaded
 #   - The `rstanarm` package must be installed and loaded
+#   - The `arrow` package must be installed and loaded
 #   - cleaning.R must have been run
 # Any other information needed? None
 
@@ -14,9 +15,10 @@
 #### Workspace setup ####
 library(tidyverse)
 library(rstanarm)
+library(arrow)
 
 #### Read data ####
-analysis_data <- read_csv("data/analysis_data/analysis_data.csv")
+analysis_data <- read_parquet("data/analysis_data/analysis_data.parquet")
 
 ### Model data ####
 priors <- normal(50, 2)
