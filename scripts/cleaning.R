@@ -11,6 +11,7 @@
 
 #### Workspace setup ####
 library(tidyverse)
+library(arrow)
 
 #### Clean data ####
 raw_data <- read_csv("data/raw_data/raw_data.csv")
@@ -26,5 +27,5 @@ analysis_data <- raw_data |>
                         state, start_date, end_date, sample_size, population, 
                         election_date, party, answer, candidate_name, pct) 
 
-#### Save data ####
-write_csv(analysis_data, "data/analysis_data/analysis_data.csv")
+#### Save data as parquet file ####
+write_parquet(x = analysis_data, sink = "data/analysis_data/analysis_data.parquet")
