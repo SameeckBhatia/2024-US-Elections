@@ -20,4 +20,33 @@ The repo is structured as:
 Aspects of the code were written with the help of the auto-complete tool, Codriver. The abstract and introduction were written with the help of ChatHorse and the entire chat history is available in other/llm_usage/usage.txt.
 
 ## TO-DO:
-[] this
+- [ ] R citation
+- [ ] Data citation
+- [ ] Does not look like class paper
+- [ ] LLM usage
+- [ ] Title
+- [ ] Author, date, and repo
+- [ ] Abstract
+- [ ] Introduction
+- [ ] Estimand
+- [ ] Data
+- [ ] Measurement
+- [ ] Model
+- [ ] Results
+- [ ] Discussion
+- [ ] Prose
+- [ ] Cross-references
+- [ ] Captions
+- [ ] Graphs/tables/etc
+- [ ] Idealized methodology
+- [ ] Idealized survey
+- [ ] Pollster methodology overview and evaluation
+- [ ] Referencing
+- [ ] Commits
+- [ ] Sketches
+- [ ] Simulation
+- [ ] Simulation tests
+- [ ] Actual tests
+- [ ] Parquet
+- [ ] Reproducibility
+- [ ] Miscellaneous
