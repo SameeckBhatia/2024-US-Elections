@@ -1,0 +1,101 @@
+---
+title: "Race to the Ballot Box: Will Demographics Decide a Winner This Year?"
+subtitle: "A Regressional Approach to Race and Political Preferences in the 2024 US Elections and Insights on the Next"
+author: 
+  - Sameeck Bhatia
+  - Sean Chua
+thanks: "Code and data are available at: [https://github.com/SameeckBhatia/2024-US-Elections](https://github.com/SameeckBhatia/2024-US-Elections)."
+date: today
+date-format: long
+abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin semper lobortis ante quis euismod. Praesent iaculis, nunc sed sagittis dignissim, metus eros venenatis nunc, in posuere risus felis eget nisi. Praesent pulvinar metus velit, sit amet tincidunt dolor consectetur id. Praesent mi nisi, venenatis nec euismod a, vehicula et nisl. In hac habitasse platea dictumst. Sed tristique ligula id suscipit convallis. Donec eget orci in felis consequat fringilla id sit amet lacus."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt nec eros ut consequat. Donec consectetur purus non nisl posuere, et gravida erat bibendum. Donec tincidunt tortor suscipit dignissim convallis. Pellentesque elit libero, varius a orci tincidunt, rhoncus sodales augue. Donec egestas, risus vitae feugiat efficitur, nunc velit euismod tellus, at dictum neque orci id nisi. Ut sit amet nisl suscipit, elementum nisl quis, volutpat sem. Phasellus mauris sapien, facilisis at eros eu, consequat gravida lorem. Praesent pulvinar blandit enim sed aliquam. Cras purus nunc, auctor ut lectus sit amet, facilisis dignissim ligula. Cras ligula odio, eleifend sit amet sem ut, sollicitudin imperdiet massa. Vivamus eget mi bibendum, vehicula ipsum a, pretium felis. Maecenas semper vel nisi fringilla luctus.
+
+Donec eleifend tortor eu diam convallis, eu dictum nunc tincidunt. Nunc consectetur sapien arcu, id gravida arcu pulvinar id. Nam dignissim nisl ac ornare maximus. Nullam eget vulputate libero. Vestibulum vitae sapien risus. Vivamus facilisis orci semper, tincidunt massa at, faucibus sem. Ut ac augue elementum, bibendum justo ornare, porta tortor. Vestibulum vitae turpis orci. Sed ultrices ante metus, vel efficitur eros feugiat luctus. Nulla at tincidunt nunc, et dapibus nisi. Proin feugiat, elit pellentesque lobortis pellentesque, magna odio efficitur diam, eget finibus arcu tortor sit amet diam. Duis malesuada lacus sit amet dui auctor pellentesque. Sed fermentum lectus id vulputate euismod. Duis ultrices magna eu leo consequat consectetur. Nulla facilisi.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt nec eros ut consequat. Donec consectetur purus non nisl posuere, et gravida erat bibendum. Donec tincidunt tortor suscipit dignissim convallis. Pellentesque elit libero, varius a orci tincidunt, rhoncus sodales augue. Donec egestas, risus vitae feugiat efficitur, nunc velit euismod tellus, at dictum neque orci id nisi. Ut sit amet nisl suscipit, elementum nisl quis, volutpat sem. Phasellus mauris sapien, facilisis at eros eu, consequat gravida lorem. Praesent pulvinar blandit enim sed aliquam. Cras purus nunc, auctor ut lectus sit amet, facilisis dignissim ligula. Cras ligula odio, eleifend sit amet sem ut, sollicitudin imperdiet massa. Vivamus eget mi bibendum, vehicula ipsum a, pretium felis. Maecenas semper vel nisi fringilla luctus.
+
+Donec eleifend tortor eu diam convallis, eu dictum nunc tincidunt. Nunc consectetur sapien arcu, id gravida arcu pulvinar id. Nam dignissim nisl ac ornare maximus. Nullam eget vulputate libero. Vestibulum vitae sapien risus. Vivamus facilisis orci semper, tincidunt massa at, faucibus sem. Ut ac augue elementum, bibendum justo ornare, porta tortor. Vestibulum vitae turpis orci. Sed ultrices ante metus, vel efficitur eros feugiat luctus. Nulla at tincidunt nunc, et dapibus nisi. Proin feugiat, elit pellentesque lobortis pellentesque, magna odio efficitur diam, eget finibus arcu tortor sit amet diam. Duis malesuada lacus sit amet dui auctor pellentesque. Sed fermentum lectus id vulputate euismod. Duis ultrices magna eu leo consequat consectetur. Nulla facilisi.
+
+# Data {#sec-data}
+
+## Overview
+
+We use the statistical programming language R [@citeR].... Our data [@shelter].... Following @tellingstories, we consider...
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+## Measurement
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+## Outcome variables
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+## Predictor variables
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+# Model
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum.
+
+## Model set-up
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+# Results
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+# Discussion
+
+## First discussion point {#sec-first-point}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+## Second discussion point
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+## Third discussion point
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+## Weaknesses and next steps
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+
+\newpage
+
+\appendix
+
+# Appendix {.unnumbered}
+The poll was conducted from Sept. 29 to Oct. 6 and surveyed 3,385 likely voters nationwide and found that Harris led Trump by 49 percent to 46 percent, a slight lead that is within the poll’s margin of error (2.4 points). According to [@nyt-crosstabs], the national poll includes separate polls of 622 voters in Florida, and 617 voters in Texas. The weight given to each of these groups in the national poll has been adjusted so that the overall results are reflective of the entire country. Polls were also conducted by telephone, using live interviewers, in both English and Spanish, with about 98% of respondents were contacted on a cellphone [@nyt-topline]. For battleground polls, voters were called from Arizona, Georgia, Michigan, Nevada, Pennsylvania and Wisconsin [@nyt-methodology] — swing states that have a significant share in electoral college votes). In light of this, responses were also weighted to consider over- and under-represented voters to ensure that each demographic is adequately represented.
+
+This poll employs a random sampling approach of registered voters using telephone interviews, with a focus on both landlines and cellphones. As such, this generally allowed for a representative sample. In addition, NYT/Siena also used voter registration files help ensure proper balance between political parties, and telephone polls have historically proven to be effective in gauging public opinion from recent elections. However, one particular drawback is that telephone response rates are extremely low; in fact, for this poll, “fewer than 2% of contacted individuals participate in the survey.”
+
+In handling non-responses within their questionnaire, for some questions another “sub-question” related to the original is asked only once in order to get a definitive answer; this usually occurs in questions related to leaning (not outright) candidate support. By doing this, it allows NYT to more accurately gauge the public’s opinions. However, at times, they leave non-responses as “Refused” or “Don’t know” often on questions targeted to the individual person (e.g. How has ___ affected you personally?). At this point, there is little no use prodding further in case of a non-response. The overall questionnaire is of high quality (NYT/Siena is one of the most reputable polls after all), and it has its strong and weak points. First, most questions, often those on respondent identification or demographic, are unbiased and fair; in particular, questions on candidate preferences did not contain words suggestive of one candidate over another. However, some questions contain gender-coded language that may skew respondents’ answers in favor of one candidate (e.g. In the question “cares more about people like you” the word “cares” is more often associated with females and so respondents are more likely to choose Harris as the answer, which was seen in the poll results with Harris receiving 49% of responses versus Trump’s 41%). 
+
+
+\newpage
+
+# References
