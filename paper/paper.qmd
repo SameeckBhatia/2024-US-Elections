@@ -8,8 +8,9 @@ author:
 thanks: "Code and data are available at: [https://github.com/SameeckBhatia/2024-US-Elections](https://github.com/SameeckBhatia/2024-US-Elections)."
 date: today
 date-format: long
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin semper lobortis ante quis euismod. Praesent iaculis, nunc sed sagittis dignissim, metus eros venenatis nunc, in posuere risus felis eget nisi. Praesent pulvinar metus velit, sit amet tincidunt dolor consectetur id. Praesent mi nisi, venenatis nec euismod a, vehicula et nisl. In hac habitasse platea dictumst. Sed tristique ligula id suscipit convallis. Donec eget orci in felis consequat fringilla id sit amet lacus."
+abstract: "This paper analyzes polling data for the 2024 U.S. Presidential election to predict the winner, while also capturing demographic sentiment toward the two main contenders - Donald Trump and Kamala Harris. We found that ....[NEED TO COMPLETE]. This study highlights that factors such as .... the reputation of the pollster, quality of the poll, bias, sample size, demographic area...[COME BACK AND CHANGE] are essential for analyzing polling data and thereby forecasting election outcomes. Highlighting these trends is crucial for understanding the evolving political landscape in the U.S., as they reveal how voter demographics and sentiments shape election outcomes."
 format: pdf
+toc: true
 number-sections: true
 bibliography: references.bib
 ---
@@ -20,18 +21,19 @@ bibliography: references.bib
 #| message: false
 
 library(tidyverse)
-library(palmerpenguins)
 ```
 
 # Introduction
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt nec eros ut consequat. Donec consectetur purus non nisl posuere, et gravida erat bibendum. Donec tincidunt tortor suscipit dignissim convallis. Pellentesque elit libero, varius a orci tincidunt, rhoncus sodales augue. Donec egestas, risus vitae feugiat efficitur, nunc velit euismod tellus, at dictum neque orci id nisi. Ut sit amet nisl suscipit, elementum nisl quis, volutpat sem. Phasellus mauris sapien, facilisis at eros eu, consequat gravida lorem. Praesent pulvinar blandit enim sed aliquam. Cras purus nunc, auctor ut lectus sit amet, facilisis dignissim ligula. Cras ligula odio, eleifend sit amet sem ut, sollicitudin imperdiet massa. Vivamus eget mi bibendum, vehicula ipsum a, pretium felis. Maecenas semper vel nisi fringilla luctus.
+\textbf{Broader Context + What the Paper is About} As the 2024 U.S. Presidential election draws near, the race between former President Donald Trump and Vice President Kamala Harris has garnered widespread attention worldwide. With both candidates representing contrasting ideologies and policy priorities, appealing to distinct voter bases, understanding the public sentiment surrounding them becomes crucial in predicting the election's outcome. Polls and demographic analyses provide a lens through which we can examine the factors influencing voter preferences and gauge the political landscape as it evolves. This paper aims to analyze the 2024 election polling data to not only forecast the winner but also to capture the demographic-wise public sentiment surrounding the two contenders.
 
-Donec eleifend tortor eu diam convallis, eu dictum nunc tincidunt. Nunc consectetur sapien arcu, id gravida arcu pulvinar id. Nam dignissim nisl ac ornare maximus. Nullam eget vulputate libero. Vestibulum vitae sapien risus. Vivamus facilisis orci semper, tincidunt massa at, faucibus sem. Ut ac augue elementum, bibendum justo ornare, porta tortor. Vestibulum vitae turpis orci. Sed ultrices ante metus, vel efficitur eros feugiat luctus. Nulla at tincidunt nunc, et dapibus nisi. Proin feugiat, elit pellentesque lobortis pellentesque, magna odio efficitur diam, eget finibus arcu tortor sit amet diam. Duis malesuada lacus sit amet dui auctor pellentesque. Sed fermentum lectus id vulputate euismod. Duis ultrices magna eu leo consequat consectetur. Nulla facilisi.
+\textbf{Estimand:} The primary estimand for this analysis is the predicted support percentage for each of the two candidates.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt nec eros ut consequat. Donec consectetur purus non nisl posuere, et gravida erat bibendum. Donec tincidunt tortor suscipit dignissim convallis. Pellentesque elit libero, varius a orci tincidunt, rhoncus sodales augue. Donec egestas, risus vitae feugiat efficitur, nunc velit euismod tellus, at dictum neque orci id nisi. Ut sit amet nisl suscipit, elementum nisl quis, volutpat sem. Phasellus mauris sapien, facilisis at eros eu, consequat gravida lorem. Praesent pulvinar blandit enim sed aliquam. Cras purus nunc, auctor ut lectus sit amet, facilisis dignissim ligula. Cras ligula odio, eleifend sit amet sem ut, sollicitudin imperdiet massa. Vivamus eget mi bibendum, vehicula ipsum a, pretium felis. Maecenas semper vel nisi fringilla luctus.
+\textbf{What was done:} We used polling data from FiveThirtyEight, which includes surveys from organizations such as YouGov, Siena/NYT, and Washington Post. We used a Bayesian approach to model the polling support percentages for both candidates, and understand how polling factors such as numeric grade, poll score, state, and sample size affect the predicted support percentage.
 
-Donec eleifend tortor eu diam convallis, eu dictum nunc tincidunt. Nunc consectetur sapien arcu, id gravida arcu pulvinar id. Nam dignissim nisl ac ornare maximus. Nullam eget vulputate libero. Vestibulum vitae sapien risus. Vivamus facilisis orci semper, tincidunt massa at, faucibus sem. Ut ac augue elementum, bibendum justo ornare, porta tortor. Vestibulum vitae turpis orci. Sed ultrices ante metus, vel efficitur eros feugiat luctus. Nulla at tincidunt nunc, et dapibus nisi. Proin feugiat, elit pellentesque lobortis pellentesque, magna odio efficitur diam, eget finibus arcu tortor sit amet diam. Duis malesuada lacus sit amet dui auctor pellentesque. Sed fermentum lectus id vulputate euismod. Duis ultrices magna eu leo consequat consectetur. Nulla facilisi.
+The results show that ... [TO-DO]. These results are important because ... [TO-DO].
+
+The rest of the paper is structured as follows: @sec-data details the data and measurement process.@sec-model presents the model and justifies the choices made in the building of the chosen model. @sec-results presents the results, highlighting the relationship between different variables and the polling support percentage, and @sec-discussion discusses the implications of the findings for this as well as future election forecasting.
 
 # Data {#sec-data}
 
@@ -53,7 +55,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
 
-# Model
+# Model {#sec-model}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum.
 
@@ -61,13 +63,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
 
-# Results
+# Results {#sec-results}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
 
-# Discussion
+# Discussion {#sec-discussion}
 
 ## First discussion point {#sec-first-point}
 
