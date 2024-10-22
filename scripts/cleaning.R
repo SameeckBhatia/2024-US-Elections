@@ -6,7 +6,7 @@
 # License: MIT
 # Pre-requisites:
 #   - The `tidyverse` package must be installed and loaded
-#   - 02-download_data.R must have been run
+#   - gather.R must have been run
 # Any other information needed? None
 
 #### Workspace setup ####

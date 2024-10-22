@@ -7,7 +7,7 @@
 # Pre-requisites: 
 #   - The `tidyverse` package must be installed and loaded
 #   - The `testthat` packages must be installed and loaded
-#   - 03-clean_data.R must have been run
+#   - cleaning.R must have been run
 # Any other information needed? None
 
 
