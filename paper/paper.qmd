@@ -125,6 +125,18 @@ In handling non-responses within their questionnaire, for some questions another
 
 ## Sampling Approach
 
+In predicting U.S. presidential election outcomes through polling, an ideal methodology would utilize stratified sampling to ensure a representative sample of the electorate. This approach would survey registered voters from all states, then the sample will be adjusted proportionally, reflecting key demographic factors such as education, race, gender, and the urban-to-rural population ratio. To achieve this, voter registration records and census data would serve as the basis for selecting respondents. Telephone polling would be employed, with calls made at different times of the day to mitigate potential biases from non-response patterns, as certain groups of individuals may be more reachable at specific times. Given that modern telephone polling often encounters low response rates, this methodology assumes a 10% response rate, consistent with findings, highlighting the challenges in obtaining representative samples from telephone-based surveys [@keeter]. Therefore, around 15,000 individuals will be contacted to obtain a desired sample size of 1500. Despite the low response rate, carefully deploying methods should help mitigate biases and improve the accuracy of election predictions.
+
+The survey will begin by introducing each potential participant to the topic and providing necessary context about the purpose of the research. This introduction aims to make the participants feel informed and comfortable with the process. The first question will ask whether the individual is willing to participate in the survey, emphasizing that participation is voluntary. It will also be clearly communicated that respondents may drop out of the survey at any point if they choose. Once participants agree, they will proceed to answer a series of demographic questions that will help ensure a diverse and stratified sample. These questions include:
+
+- "What is your gender?"
+- "What is your age?"
+- "Which city do you live in?"
+- "What race do you identify as?"
+- "What is your highest degree of education?"
+- "Will you be voting in the upcoming election?"
+- "Which candidate will you be voting for?"
+
 ## Data Validation
 
 \newpage
