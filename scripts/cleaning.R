@@ -18,14 +18,16 @@ library(arrow)
 raw_data <- read_csv("data/raw_data/raw_data.csv")
 
 analysis_data <- raw_data |>
-                 mutate(start_date = mdy(start_date), 
+                 mutate(start_date = mdy(start_date),
+                        end_date = mdy(end_date),
+                        election_date = mdy(election_date),
                         candidate_trump = ifelse(candidate_name == "Donald Trump", 1, 0),
                         swing_state = ifelse(state %in% c("Arizona", "Georgia", "Michigan", 
                                                           "Nevada", "North Carolina", 
                                                           "Pennsylvania", "Wisconsin"), 1, 0)) |>
                  filter(start_date >= as.Date("2024-07-21"),
                         party %in% c("DEM", "REP"), 
-                        pollster %in% c("Emerson", "Siena/NYT", "YouGov"),
+                        numeric_grade >= 2.6,
                         swing_state == 1) |>
                  select(poll_id, pollster, numeric_grade, state,start_date, 
                         end_date, sample_size, population, election_date, party, 
