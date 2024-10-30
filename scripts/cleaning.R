@@ -26,12 +26,10 @@ analysis_data <- raw_data |>
                                                           "Nevada", "North Carolina", 
                                                           "Pennsylvania", "Wisconsin"), 1, 0)) |>
                  filter(start_date >= as.Date("2024-07-21"),
-                        party %in% c("DEM", "REP"), 
-                        numeric_grade >= 2.6,
-                        swing_state == 1) |>
+                        party %in% c("DEM", "REP")) |>
                  select(poll_id, pollster, numeric_grade, state,start_date, 
                         end_date, sample_size, population, election_date, party, 
-                        answer, candidate_name, pct, candidate_trump) |>
+                        answer, candidate_name, pct, candidate_trump, swing_state) |>
                  drop_na()
 
 #### Save data as parquet file ####

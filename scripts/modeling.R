@@ -18,6 +18,7 @@ library(rstanarm)
 library(arrow)
 library(caret)
 library(MLmetrics)
+library(modelsummary)
 
 model_data <- read_parquet("data/analysis_data/analysis_data.parquet")
 
@@ -33,12 +34,12 @@ set.seed(12)
 training_index <- createDataPartition(model_data$state, p = 0.7, list = FALSE)
 
 training_data <- model_data[training_index,]
-testing_data <- model_data[-training_index,]
+testing_data <- model_data[-training_index,] |> filter(swing_state == 1)
 
 testing_data <- testing_data |> filter(pollster %in% unique(training_data$pollster))
 
 priors <- normal(0.5, 2.5, autoscale = TRUE)
-formula <- candidate_trump ~ (1 | pollster) + (1 | state) + sample_size + pct + days_to_election
+formula <- candidate_trump ~ (1 | pollster) + (1 | state) + pct
 
 model <- stan_glmer(
   formula = formula,
@@ -72,10 +73,10 @@ predicted_data |>
 
 F1_Score(predicted_data$candidate_trump, predicted_data$winner_trump)
 
-RMSE(predicted_data$pct, predicted_data$predicted_pct)
+RMSE(predicted_data$candidate_trump, predicted_data$predicted_pct/100)
 
 #### Save model ####
 saveRDS(
-  election_model,
+  model,
   file = "models/election_model.rds"
 )
