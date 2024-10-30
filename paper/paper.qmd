@@ -58,8 +58,10 @@ Thus, each entry in the dataset corresponds to the results of a specific poll, p
 
 
 ## Outcome variables
+We aim to predict our response variable `candidate_trump`, which is a binary variable with 0 and 1 representing a loss and win in a state respectively. The plot of our outcome variables is shown below:
+```{r}
 
-TO-DO: All variables should be thoroughly examined and explained.
+```
 
 TO-DO: It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables.
 
@@ -67,22 +69,49 @@ TO-DO: It is important to understand what the variables look like by including g
 ## Predictor variables
 
 TO-DO: All variables should be thoroughly examined and explained.
-
-TO-DO: It is important to understand what the variables look like by including graphs, and possibly tables, of all observations, along with discussion of those graphs and the other features of these data. Summary statistics should also be included, and well as any relationships between the variables.
+[PLOTS OF PREDICTOR VARIABLES NEEDED]
+- **Sample Size (`sample_size`)**: The number of respondents in the poll.
+- **State (`state`)**: A categorical variable for different U.S. states.
+- **Days to Election (`days_to_election`)**: Counts the number of days until Election Day starting from today’s date (it also uses `end_date` from the original dataset).
+- **Voter Percentage of Candidate (`pct`)**: A continuous variable for the percentage of voters who plan to vote for Trump based on polling data.
 
 # Model {#sec-model}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum.
 
 ## Model set-up
+A Bayesian approach is used in constructing our model. As such, an informative prior is assumed, and logistic regression is implemented due to the nature of the outcome variable (binary).
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+The predictor variables used in the model are as follows: 
+
+- **Sample Size (`sample_size`)**: The number of respondents in the poll.
+- **State (`state`)**: A categorical variable for different U.S. states.
+- **Days to Election (`days_to_election`)**: Counts the number of days until Election Day starting from today’s date (it also uses `end_date` from the original dataset).
+- **Voter Percentage of Candidate (`pct`)**: A continuous variable for the percentage of voters who plan to vote for Trump based on polling data.
+
+The model takes the form of the following equation [TO-DO]:
+\begin{align}
+\text{pct}_i &= \beta_0 + \beta_1 \cdot \text{numeric\_grade}_i + \beta_2 \cdot \text{transparency\_score}_i \\
+             &\quad + \beta_3 \cdot \text{sample\_size}_i + \beta_4 \cdot \text{state}_i + \beta_5 \cdot \text{end\_date}_i + \epsilon_i \\
+\epsilon_i &\sim \text{Normal}(0, \sigma^2)
+\end{align}
+
+Where: 
+\begin{align}
+\beta_0 & \text{ is the intercept term} \\
+\beta_1, \beta_2, \beta_3, \beta_4, \beta_5 & \text{ are the coefficients for each predictor} \\
+\sigma^2 & \text{ is the variance of the error term}
+\end{align}
+
+## Interpretation
+[WORDS TO-DO]
+
+## Model Justification and Evaluation
+[tbl-summary] shows the summary table for the model. 
+F1-Score blabla
 
 # Results {#sec-results}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+[WORDS]
 
 # Discussion {#sec-discussion}
 
@@ -121,12 +150,36 @@ This poll employs a random sampling approach of registered voters using telephon
 In handling non-responses within their questionnaire, for some questions another “sub-question” related to the original is asked only once in order to get a definitive answer; this usually occurs in questions related to leaning (not outright) candidate support. By doing this, it allows NYT to more accurately gauge the public’s opinions. However, at times, they leave non-responses as “Refused” or “Don’t know” often on questions targeted to the individual person (e.g. How has ___ affected you personally?). At this point, there is little no use prodding further in case of a non-response. The overall questionnaire is of high quality (NYT/Siena is one of the most reputable polls after all), and it has its strong and weak points. First, most questions, often those on respondent identification or demographic, are unbiased and fair; in particular, questions on candidate preferences did not contain words suggestive of one candidate over another. However, some questions contain gender-coded language that may skew respondents’ answers in favor of one candidate (e.g. In the question “cares more about people like you” the word “cares” is more often associated with females and so respondents are more likely to choose Harris as the answer, which was seen in the poll results with Harris receiving 49% of responses versus Trump’s 41%). 
 
 
-# Idealized Methodology
+# Appendix B: Idealized Methodology and Survey 
 
-## Sampling Approach
+## Sampling Approach and Strategy
 
 In predicting U.S. presidential election outcomes through polling, an ideal methodology would utilize stratified sampling to ensure a representative sample of the electorate. This approach would survey registered voters from all states, then the sample will be adjusted proportionally, reflecting key demographic factors such as education, race, gender, and the urban-to-rural population ratio. To achieve this, voter registration records and census data would serve as the basis for selecting respondents. Telephone polling would be employed, with calls made at different times of the day to mitigate potential biases from non-response patterns, as certain groups of individuals may be more reachable at specific times. Given that modern telephone polling often encounters low response rates, this methodology assumes a 10% response rate, consistent with findings, highlighting the challenges in obtaining representative samples from telephone-based surveys [@keeter]. Therefore, around 15,000 individuals will be contacted to obtain a desired sample size of 1500. Despite the low response rate, carefully deploying methods should help mitigate biases and improve the accuracy of election predictions.
 
+### Stratification Variables [TO-DO]
+* **Age Groups**: 18-29, 30-44, 45-64, 65+ 
+* **Gender**: Male, Female, Non-binary/Other 
+* **Race/Ethnicity**: White, Black, Hispanic/Latino, Asian, Indigenous, Other 
+* **Education Level**: No high school, High school graduate, College graduate, Post-graduate 
+* **Income Bracket**: <$30,000, \$30,000-\$60,000, \$60,000-\$100,000, >\$100,000 
+* **Geographic Region**: Northeast, Midwest, South, West 
+
+## Budget Allocation
+* **Marketing and Outreach (Ads and Incentives)**: \$50,000
+
+* **Survey Design and Data Validation**:
+  - Questionnaire Development: \$5,000
+  - Pilot Testing (survey run on small group of people): \$5,000
+  - Google Forms (with built-in validation rules): \$5,000
+
+* **Data Analysis and Software**: 
+  - Statistical Software: \$5,000
+  - Staff Fees (Analysts and Statisticians): \$15,000
+
+* **Financial Incentives**: \$2,000
+* **Miscellaneous Expenses and Contingency Fund**: \$8,000
+
+###  **Survey Structure**:
 The survey will begin by introducing each potential participant to the topic and providing necessary context about the purpose of the research. This introduction aims to make the participants feel informed and comfortable with the process. The first question will ask whether the individual is willing to participate in the survey, emphasizing that participation is voluntary. It will also be clearly communicated that respondents may drop out of the survey at any point if they choose. Once participants agree, they will proceed to answer a series of demographic questions that will help ensure a diverse and stratified sample. These questions include:
 
 - "What is your gender?"
