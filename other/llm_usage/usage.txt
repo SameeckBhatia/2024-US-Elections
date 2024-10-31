@@ -136,3 +136,193 @@ test_that("Start date is before end date", {
   expect_true(all(as.Date(data$start_date) <= as.Date(data$end_date, format="%m/%d/%y")))
 })
 These tests help catch basic issues like incorrect data types, invalid percentages, or logical errors with dates.
+
+###
+
+User
+Replace certain values in a column r
+
+ChatGPT
+To replace certain values in a column in R, you can use the dplyr package or base R. Here are two approaches:
+
+Using dplyr (Recommended)
+First, make sure dplyr is loaded:
+
+R
+Copy code
+# install.packages("dplyr") # Run this line if you haven't installed dplyr
+library(dplyr)
+
+# Example dataframe
+df <- data.frame(name = c("Alice", "Bob", "Charlie", "Alice"))
+
+# Replace "Alice" with "Eve" in the "name" column
+df <- df %>%
+  mutate(name = ifelse(name == "Alice", "Eve", name))
+Using Base R
+If you prefer base R, you can use indexing:
+
+R
+Copy code
+df$name[df$name == "Alice"] <- "Eve"
+In both examples, this will replace "Alice" with "Eve" in the name column. Adjust the column name and values as needed!
+
+###
+
+User
+Rename certain values
+
+ChatGPT
+To rename certain values in a column in R, you can use either dplyr or base R. Here’s how:
+
+Using dplyr::recode (for specific replacements)
+recode allows you to rename specific values directly:
+
+R
+Copy code
+# Load dplyr
+library(dplyr)
+
+# Example dataframe
+df <- data.frame(name = c("Alice", "Bob", "Charlie", "Alice"))
+
+# Rename specific values in the "name" column
+df <- df %>%
+  mutate(name = recode(name, "Alice" = "Eve", "Bob" = "Robert"))
+Using Base R with ifelse
+For simple replacements, ifelse works well:
+
+R
+Copy code
+# Rename values in the "name" column
+df$name <- ifelse(df$name == "Alice", "Eve", df$name)
+df$name <- ifelse(df$name == "Bob", "Robert", df$name)
+In both examples, adjust the column name and values as needed! This will rename "Alice" to "Eve" and "Bob" to "Robert" in the name column.
+
+###
+
+User
+What are some tests i can conduct on this:
+#### Preamble ####
+# Purpose: Simulates a mock dataset of polls in each state.
+# Author: Sameeck Bhatia, Sean Chua, Tanmay Shinde
+# Date: 30 October 2024
+# Contact: sameeck.bhatia@mail.utoronto.ca
+# License: MIT
+# Pre-requisites: 
+#   - The tidyverse package must be installed and loaded
+# Any other information needed? None
+
+
+#### Workspace setup ####
+library(tidyverse)
+set.seed(12)
+
+
+#### Simulate data ####
+pollsters <- c("Emerson", "Morning Consult", "Siena/NYT", "YouGov")
+states <- c("AZ", "FL", "GA", "NY", "WA")
+populations <- c("likely", "registered")
+dates <- seq(from = as.Date("2024-07-21"), to = as.Date("2024-10-30"), by = 1)
+
+n <- 50
+
+simulated_data1 <- data.frame(
+  "poll_id" = sample(10000:49999, n, replace = FALSE),
+  "pollster" = sample(pollsters, n, replace = TRUE, prob = c(124, 272, 180, 30)),
+  "state" = sample(states, n, replace = TRUE, prob = c(2, 6, 3, 6, 2)),
+  "sample_size" = rpois(n, 800),
+  "population" = sample(populations, n, replace = TRUE, prob = c(66, 34)),
+  "end_date" = sample(dates, n, replace = TRUE),
+  "candidate" = "Trump"
+  ) |>
+  mutate(percent = case_when(state == "AZ" ~ round(rnorm(n, 49, 2), 2),
+                             state == "FL" ~ round(rnorm(n, 50, 2), 2),
+                             state == "GA" ~ round(rnorm(n, 50, 2), 2),
+                             state == "NY" ~ round(rnorm(n, 39, 2), 2),
+                             state == "WA" ~ round(rnorm(n, 41, 2), 2)))
+
+simulated_data2 <- data.frame(
+  "poll_id" = sample(50000:99999, n, replace = FALSE),
+  "pollster" = sample(pollsters, n, replace = TRUE, prob = c(124, 272, 180, 30)),
+  "state" = sample(states, n, replace = TRUE, prob = c(2, 6, 3, 6, 2)),
+  "sample_size" = rpois(n, 800),
+  "population" = sample(populations, n, replace = TRUE, prob = c(66, 34)),
+  "end_date" = sample(dates, n, replace = TRUE),
+  "candidate" = "Harris"
+) |>
+  mutate(percent = case_when(state == "AZ" ~ round(rnorm(n, 51, 2), 2),
+                             state == "FL" ~ round(rnorm(n, 50, 2), 2),
+                             state == "GA" ~ round(rnorm(n, 50, 2), 2),
+                             state == "NY" ~ round(rnorm(n, 61, 2), 2),
+                             state == "WA" ~ round(rnorm(n, 59, 2), 2)))
+
+simulated_data <- rbind(simulated_data1, simulated_data2)
+
+#### Save data ####
+write_csv(simulated_data, "data/simulated_data/simulated_data.csv")
+
+ChatGPT
+To ensure your simulated polling dataset is comprehensive and accurate, you can conduct a variety of tests, covering everything from data integrity and structure to distribution checks and basic statistical validations. Here’s a breakdown of some useful test categories and specific tests you can run.
+
+1. Data Structure and Consistency Checks
+Column Types: Confirm that each column has the expected data type (e.g., poll_id as integer, state as character, sample_size as integer, percent as numeric).
+r
+Copy code
+str(simulated_data)
+Unique Identifiers: Check that poll_id values are unique.
+r
+Copy code
+any(duplicated(simulated_data$poll_id))
+Valid Values for Columns: Verify that categorical columns (like state, population, candidate) only contain expected values.
+r
+Copy code
+unique(simulated_data$state)
+unique(simulated_data$population)
+unique(simulated_data$candidate)
+2. Range and Boundary Checks
+Date Range: Ensure that end_date is within the specified date range (2024-07-21 to 2024-10-30).
+r
+Copy code
+range(simulated_data$end_date)
+Sample Size Range: Check if sample_size values are reasonable (e.g., within 100–2000 for typical poll sizes).
+r
+Copy code
+summary(simulated_data$sample_size)
+Percent Range: Confirm that percent values are within 0–100.
+r
+Copy code
+any(simulated_data$percent < 0 | simulated_data$percent > 100)
+3. Distributional Checks
+Expected Means by State: Since the simulated percent values are generated with different means per state, validate that the actual means align with the expected state-specific means. This ensures the normal distribution parameters are being applied as intended.
+
+r
+Copy code
+simulated_data %>%
+  group_by(state, candidate) %>%
+  summarise(mean_percent = mean(percent), .groups = "drop")
+Distribution of Pollsters and Populations: Check if the distribution of pollster and population matches the specified probabilities.
+
+r
+Copy code
+prop.table(table(simulated_data$pollster))
+prop.table(table(simulated_data$population))
+4. Basic Statistical Tests
+Mean Comparison Between Candidates per State: Conduct t-tests to check if the percent for each candidate has significant differences by state, aligning with the means you set (e.g., Trump’s lower mean in NY vs. Harris’s higher mean).
+r
+Copy code
+simulated_data %>%
+  group_by(state) %>%
+  summarise(p_value = t.test(percent ~ candidate)$p.value)
+5. Missing Values and NA Checks
+Check for NAs: Ensure there are no unexpected missing values.
+r
+Copy code
+colSums(is.na(simulated_data))
+6. Integrity of Saved File
+File Validation: After saving the dataset, reload and confirm it’s identical to simulated_data.
+r
+Copy code
+saved_data <- read_csv("data/simulated_data/simulated_data.csv")
+identical(simulated_data, saved_data)
+Each test checks a different aspect of your data, helping ensure your simulation is complete, accurate, and aligns with the intended setup.
