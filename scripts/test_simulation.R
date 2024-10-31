@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Tests whether the simulated data is valid and is the required size.
-# Author: Sameeck Bhatia
-# Date: 14 October 2024
+# Author: Sameeck Bhatia, Sean Chua, Tanmay Shinde
+# Date: 30 October 2024
 # Contact: sameeck.bhatia@mail.utoronto.ca
 # License: MIT
 # Pre-requisites: 
@@ -26,22 +26,53 @@ if (exists("simulated_data")) {
 
 
 #### Test data ####
-test_that("The dataset has 1000 observations", {
-  expect_equal(nrow(simulated_data), 1000)
+test_that("poll_id values are unique", {
+  expect_equal(any(duplicated(simulated_data$poll_id)), FALSE)
 })
 
-test_that("Each state has at least 1 congressional district and at most 52", {
-  expect_in(range(simulated_data$district), c(1, 52))
+test_that("State, population, and candidate contain expected values only", {
+  expected_states <- c("AZ", "FL", "GA", "NY", "WA")
+  expected_populations <- c("likely", "registered")
+  expected_candidates <- c("Trump", "Harris")
+  
+  expect_true(all(simulated_data$state %in% expected_states))
+  expect_true(all(simulated_data$population %in% expected_populations))
+  expect_true(all(simulated_data$candidate %in% expected_candidates))
 })
 
-test_that("There are three parties in the dataset", {
-  expect_length(unique(simulated_data$party), 3)
+test_that("end_date is within the expected date range", {
+  expect_true(all(simulated_data$end_date >= as.Date("2024-07-21")))
+  expect_true(all(simulated_data$end_date <= as.Date("2024-10-30")))
 })
 
-test_that("All surveyor IDs are unique", {
-  expect_length(unique(simulated_data$id), 1000)
+test_that("sample_size is within a reasonable range", {
+  expect_true(all(simulated_data$sample_size > 100))
+  expect_true(all(simulated_data$sample_size < 2000))
 })
 
-test_that("At least one reponse of each race is in the dataset", {
-  expect_contains(unique(simulated_data$race), c("w", "b", "h", "a", "n", "o"))
+test_that("percent is within the range 0-100", {
+  expect_true(all(simulated_data$percent >= 0 & simulated_data$percent <= 100))
+})
+
+test_that("mean percent aligns with state-specific expectations", {
+  state_means <- simulated_data %>%
+    group_by(state, candidate) %>%
+    summarise(mean_percent = mean(percent), .groups = "drop")
+  
+  expected_means <- tibble(
+    state = c("AZ", "FL", "GA", "NY", "WA"),
+    Trump = c(49, 50, 50, 39, 41),
+    Harris = c(51, 50, 50, 61, 59)
+  )
+  
+  for (s in unique(state_means$state)) {
+    trump_mean <- state_means$mean_percent[state_means$state == s & state_means$candidate == "Trump"]
+    harris_mean <- state_means$mean_percent[state_means$state == s & state_means$candidate == "Harris"]
+    expect_true(abs(trump_mean - expected_means$Trump[expected_means$state == s]) < 3)
+    expect_true(abs(harris_mean - expected_means$Harris[expected_means$state == s]) < 3)
+  }
+})
+
+test_that("There are no missing values in the data", {
+  expect_equal(sum(is.na(simulated_data)), 0)
 })
