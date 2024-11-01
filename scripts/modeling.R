@@ -47,12 +47,10 @@ testing_data <- testing_data |>
   filter(pollster %in% unique(training_data$pollster)) |> 
   select(!state_answer)
 
-testing_data |> filter(answer == "Harris") |> group_by(state) |> summarise(mean_pct = mean(pct))
-
 write_parquet(training_data, sink = "data/analysis_data/training_data.parquet")
 write_parquet(testing_data, sink = "data/analysis_data/testing_data.parquet")
 
-priors <- normal(0.5, 3, autoscale = TRUE)
+priors <- normal(0.5, 0.25, autoscale = TRUE)
 
 trump_model <- stan_glmer(
   formula = candidate_trump ~ (1 | pollster) + (1 | state) + pct,
