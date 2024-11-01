@@ -119,6 +119,9 @@ Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae l
 Quisque pulvinar, enim a volutpat scelerisque, odio arcu condimentum velit, convallis vehicula velit augue id odio. Aenean ligula augue, mollis sit amet mi eu, ullamcorper aliquam massa. Aenean rutrum diam purus, eu porta mi blandit vitae. Phasellus luctus eleifend orci, nec aliquet mauris eleifend id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elementum, magna sed finibus tincidunt, turpis orci viverra ligula, in sollicitudin nunc ex sed orci. Curabitur et purus tortor. Maecenas volutpat enim nisi, in ornare lectus venenatis id. In non enim dui. Suspendisse id eros in nisi consequat aliquet vel sed mi. Aenean placerat elementum semper.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
+#| label: tbl-prediction
+#| echo: false
+#| 
 library(tidyverse)
 library(rstanarm)
 library(caret)
@@ -251,19 +254,31 @@ Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae l
 
 # Discussion {#sec-discussion}
 
-## First discussion point {#sec-first-point}
+## Harris Wins the Swing States and Overcomes the Bradley Effect
+Named after Thomas Bradley, a Los Angeles Mayor who underperformed his polls in the 80s, the Bradley Effect is when a candidate does poorly on polls due to his or her gender and/or race [@natesilvergut]. 
+From the @tbl-prediction, we can see that Harris wins the majority of the seven swing states,states where "both major parties enjoy similar levels of support among the voting population [@citeSwing]." With these states being the most pivotal toward Harris's path to victory, our prediction of Harris overcoming the Bradley effect, in spite of being a Black woman, bodes well for her in the upcoming election. It is important to realize that due to the nature of the Electoral College, it is possible to not win the popular vote but win the election, and these swing states play a major factor in this regard. Real-world polls, however, show Trump narrowly winning four out of seven swing states (however, the predicted margin of victory still lies within standard error margins of these polls).
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(dplyr)
+library(knitr)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+swing_states_data <- data.frame(
+  State = c("Pennsylvania", "North Carolina", "Michigan", "Wisconsin", "Georgia", "Arizona", "Nevada"),
+  Poll_1 = c(47.7, 47.5, 48.4, 48.5, 47.4, 46.8, 48.0),
+  Poll_2 = c(47.7, 47.5, 48.4, 48.5, 47.4, 46.8, 48.0),
+  Poll_3 = c(48.3, 48.6, 47.2, 47.8, 49.2, 48.9, 47.9),
+  Poll_4 = c(48.3, 48.6, 47.2, 47.8, 49.2, 48.9, 47.9),
+  Margin = c("R+ 0.6", "R+ 1.1", "D+ 1.2", "D+ 0.7", "R+ 1.8", "R+ 2.1", "D+ 0.1")
+)
 
-## Second discussion point
+kable(swing_states_data, caption = "Swing States Polling Data as of October 31, 2024")
+```
+It is important to note that the margin of victories in each swing state are within the 2 to 5% margin of error of most polls; it cannot be said for certain who wins these states until Election Day.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
+## More Urban States Tend to Lean Harris
 
-## Third discussion point
+From our results in @tbl-prediction, we see that Harris has significant leads in states like California and Maryland; from @tbl-urban, notice that these states have a relatively high level of urban population, with 94.2% and 85.6% respectively. One reason for this could be attributed to the higher proportion of educated people in urban areas as opposed to rural ones. This allows people to gain more knowledge in diverse topics such as politics and climate change [@thisnation] and adopt a progressive mindset, which is in line with the ideals of the Democratic Party. In this regard, heavily urban-populated areas tend to be more culturally diverse and open to liberal ideas [@washu_urban_rural]. Moreover, the article states that "people living in rural areas tend to have traditional values and be resistant to new ideas" which goes against the progressive mindset imbibed by Democrats.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
-
-## Weaknesses and next steps
+## Limitations and Areas for Future Research
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum. Nullam feugiat odio metus. Cras id convallis ante, ut ornare velit. Mauris turpis purus, porttitor eu leo quis, suscipit euismod ligula.
 
@@ -274,6 +289,36 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et 
 # Appendix {-}
 
 # Additional Data Details
+```{r}
+#| label: tbl-urban
+#| echo: false
+states_data <- data.frame(
+  state = c("Alabama", "Alaska", "Arizona", "Arkansas", "California", 
+            "Colorado", "Connecticut", "Delaware", "Florida", 
+            "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", 
+            "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", 
+            "Maryland", "Massachusetts", "Michigan", "Minnesota", 
+            "Mississippi", "Missouri", "Montana", "Nebraska", 
+            "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+            "New York", "North Carolina", "North Dakota",
+            "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
+            "Rhode Island", "South Carolina", "South Dakota",
+            "Tennessee", "Texas", "Utah", "Vermont",
+            "Virginia", "Washington",  "West Virginia",
+            "Wisconsin","Wyoming"),
+  urban_percent_2020 = c(57.7, 64.9, 89.3, 55.5, 94.2,
+                       86.0, 86.3, 82.6, 91.5,
+                       74.1, 86.1, 69.2, 86.9, 71.2,
+                       63.2, 72.3, 58.7, 71.5, 38.6,
+                       85.6, 91.3, 73.5, 71.9, 46.3,
+                       69.5, 53.4, 73.0, 94.1, 58.3,
+                       93.8, 74.5, 87.4, 66.7, 61.0,
+                       76.3, 64.6, 80.5, 76.5, 91.1, 67.9, 57.2, 66.2, 83.7, 89.8, 35.1,
+                       75.6, 83.4, 44.6,
+                       67.1,62)
+)
+kable(states_data, caption = "2020 Percentage of Urban Population for each US State")
+```
 
 # Additional Model Details
 
