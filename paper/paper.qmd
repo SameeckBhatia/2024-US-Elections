@@ -136,27 +136,31 @@ electoral_votes <- data.frame(
             40, 6, 3, 13, 12, 4, 10, 3)
 )
 
-set.seed(12)
-data <- read_parquet("../data/analysis_data/analysis_data.parquet")
-model <- readRDS("../models/election_model.rds")
-training_index <- createDataPartition(data$candidate_trump, p = 0.7, list = FALSE)
-testing_data <- data[-training_index,]
+predicted_data <- read_parquet("../data/analysis_data/predicted_data.parquet")
 
-testing_data |>
-  select(pollster, state, candidate_trump, pct) |>
-  mutate(
-    state = recode(state, "Maine CD-1" = "Maine", 
-                          "Maine CD-2" = "Maine",
-                          "Nebraska CD-2" = "Nebraska"),
-    predicted_pct = 100 * posterior_predict(model, newdata = testing_data, 
-                                                  draws = 2000, type = "response") |> colMeans(),
-    winner_trump = ifelse(predicted_pct > 50, 1, 0)
-  ) |>
-  group_by(state) |> 
-  summarise(predicted_prob = round(mean(predicted_pct), 2), .groups = "drop") |>
+predicted_data_trump <- predicted_data |>
+  filter(candidate_trump == 1) |>
+  select(state, pct, predicted_pct_trump) |>
+  mutate(state = recode(state, "Maine CD-1" = "Maine", "Maine CD-2" = "Maine",
+                        "Nebraska CD-2" = "Nebraska")) |>
+  group_by(state) |>
+  summarise(predicted_pct_trump = round(mean(predicted_pct_trump), 2))
+
+predicted_data_harris <- predicted_data |>
+  filter(candidate_harris == 1) |>
+  select(state, pct, predicted_pct_harris) |>
+  mutate(state = recode(state, "Maine CD-1" = "Maine", "Maine CD-2" = "Maine",
+                        "Nebraska CD-2" = "Nebraska")) |>
+  group_by(state) |>
+  summarise(predicted_pct_harris = round(mean(predicted_pct_harris), 2))
+
+predicted_data_harris |> 
+  merge(predicted_data_trump, all = T) |>
   left_join(electoral_votes, by = c("state" = "state")) |>
-  mutate(predicted_winner = ifelse(predicted_prob > 50, "Trump", "Harris")) |>
-  kbl(booktabs = TRUE, col.names = c("State", "Predicted Trump %", "Electoral Votes", "Predicted Winner"))
+  mutate(predicted_winner = ifelse(replace_na(predicted_pct_harris, 50) <
+                                     replace_na(predicted_pct_trump, 50), 
+                                   "Trump", "Harris")) |>
+  kbl(booktabs = TRUE, col.names = c("State", "Predicted Harris %", "Predicted Trump %", "Electoral Votes", "Predicted Winner"))
 ```
 
 # Discussion {#sec-discussion}
