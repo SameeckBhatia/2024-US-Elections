@@ -326,3 +326,38 @@ Copy code
 saved_data <- read_csv("data/simulated_data/simulated_data.csv")
 identical(simulated_data, saved_data)
 Each test checks a different aspect of your data, helping ensure your simulation is complete, accurate, and aligns with the intended setup.
+
+###
+
+User
+How to stratify train-test split in r based on two columns
+
+ChatGPT
+In R, to stratify a train-test split based on two columns, you can use the initial_split() function from the rsample package. This lets you split data while ensuring both columns are considered in the stratification.
+
+Here's how to do it:
+
+Install and load the rsample package if you haven't already:
+
+R
+Copy code
+install.packages("rsample")
+library(rsample)
+Use the initial_split() function, passing your dataset and specifying the two columns to stratify on by combining them into a new variable. Here’s an example:
+
+R
+Copy code
+# Assuming your data is in a dataframe called `df`
+# and you want to stratify on columns 'column1' and 'column2'
+
+# Create a new column that combines both columns
+df$combined <- interaction(df$column1, df$column2)
+
+# Split the data with stratification on the combined column
+set.seed(123) # For reproducibility
+split <- initial_split(df, prop = 0.7, strata = combined)
+
+# Access training and testing sets
+train_data <- training(split)
+test_data <- testing(split)
+In this example, we use interaction() to create a combined factor for stratification, which initial_split() can then use to ensure similar distributions of column1 and column2 values in both the training and testing sets.
