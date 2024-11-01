@@ -111,7 +111,12 @@ Where:
 F1-Score blabla
 
 # Results {#sec-results}
-[WORDS]
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris. In lacus massa, maximus vel vehicula in, tincidunt sed lorem. Proin commodo pulvinar dictum. Vestibulum eleifend, metus ac luctus molestie, velit odio cursus nisl, sed lobortis arcu massa id diam. Curabitur convallis erat a ultricies dictum. In imperdiet ultricies nibh, quis condimentum nulla mattis non.
+
+Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae leo. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit vel orci vel aliquam. Curabitur a turpis vestibulum enim interdum consectetur at et dui. Praesent ut mauris maximus, auctor nisl ac, eleifend sapien. Morbi non varius urna. Ut placerat vestibulum nisi in lacinia. Aliquam non ultrices arcu, et rhoncus dolor. Suspendisse vel pulvinar tortor. Nulla lacinia sapien sollicitudin, vestibulum nulla id, hendrerit nisl.
+
+Quisque pulvinar, enim a volutpat scelerisque, odio arcu condimentum velit, convallis vehicula velit augue id odio. Aenean ligula augue, mollis sit amet mi eu, ullamcorper aliquam massa. Aenean rutrum diam purus, eu porta mi blandit vitae. Phasellus luctus eleifend orci, nec aliquet mauris eleifend id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elementum, magna sed finibus tincidunt, turpis orci viverra ligula, in sollicitudin nunc ex sed orci. Curabitur et purus tortor. Maecenas volutpat enim nisi, in ornare lectus venenatis id. In non enim dui. Suspendisse id eros in nisi consequat aliquet vel sed mi. Aenean placerat elementum semper.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -142,7 +147,7 @@ predicted_data_trump <- predicted_data |>
   filter(candidate_trump == 1) |>
   select(state, pct, predicted_pct_trump) |>
   mutate(state = recode(state, "Maine CD-1" = "Maine", "Maine CD-2" = "Maine",
-                        "Nebraska CD-2" = "Nebraska")) |>
+                        "Nebraska CD-2" = "Nebraska", "Nebraska CD-3" = "Nebraska")) |>
   group_by(state) |>
   summarise(predicted_pct_trump = round(mean(predicted_pct_trump), 2))
 
@@ -150,7 +155,7 @@ predicted_data_harris <- predicted_data |>
   filter(candidate_harris == 1) |>
   select(state, pct, predicted_pct_harris) |>
   mutate(state = recode(state, "Maine CD-1" = "Maine", "Maine CD-2" = "Maine",
-                        "Nebraska CD-2" = "Nebraska")) |>
+                        "Nebraska CD-2" = "Nebraska", "Nebraska CD-3" = "Nebraska")) |>
   group_by(state) |>
   summarise(predicted_pct_harris = round(mean(predicted_pct_harris), 2))
 
@@ -162,6 +167,66 @@ predicted_data_harris |>
                                    "Trump", "Harris")) |>
   kbl(booktabs = TRUE, col.names = c("State", "Predicted Harris %", "Predicted Trump %", "Electoral Votes", "Predicted Winner"))
 ```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris. In lacus massa, maximus vel vehicula in, tincidunt sed lorem. Proin commodo pulvinar dictum.
+
+Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae leo. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit vel orci vel aliquam. Curabitur a turpis vestibulum enim interdum consectetur at et dui. Praesent ut mauris maximus, auctor nisl ac, eleifend sapien. Morbi non varius urna. Ut placerat vestibulum nisi in lacinia.
+
+Quisque pulvinar, enim a volutpat scelerisque, odio arcu condimentum velit, convallis vehicula velit augue id odio. Aenean ligula augue, mollis sit amet mi eu, ullamcorper aliquam massa. Aenean rutrum diam purus, eu porta mi blandit vitae. Phasellus luctus eleifend orci, nec aliquet mauris eleifend id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+```{r, fig.width = 8, fig.height=6, echo = FALSE, message = FALSE}
+predicted_data |>
+  filter(swing_state == 1, candidate_trump == 1) |>
+  select(state, end_date, predicted_pct_trump) |>
+  group_by(state, end_date) |>
+  summarise(mean = mean(predicted_pct_trump), .groups = "drop") |>
+  ggplot(aes(x = end_date, y = mean)) +
+  geom_point(size = 0.5) +
+  scale_y_continuous(limits = c(0, 100)) +
+  geom_smooth(se = FALSE, color = "red2", method = "loess", formula = 'y ~ x') +
+  facet_wrap(vars(state)) +
+  labs(x = NULL, y = NULL)
+```
+
+```{r, warning = FALSE, echo = FALSE, fig.width = 8, fig.height = 6}
+library(ggplot2)
+library(dplyr)
+
+# Prepare combined data for both candidates
+combined_data <- predicted_data |>
+  filter(candidate_trump == 1 | candidate_harris == 1) |>
+  select(state, end_date, pct, candidate_trump, candidate_harris) |>
+  group_by(state, end_date) |>
+  summarise(
+    mean_trump = mean(pct[candidate_trump == 1]),
+    mean_harris = mean(pct[candidate_harris == 1]),
+    .groups = "drop"
+  )
+
+# Melt the data for easier plotting
+combined_data_long <- combined_data |>
+  pivot_longer(cols = c(mean_trump, mean_harris),
+               names_to = "candidate",
+               values_to = "mean")
+
+# Create the overlay plot
+overlay_plot <- ggplot(combined_data_long, aes(x = end_date, y = mean, color = candidate)) +
+  geom_point(size = 0.5) +
+  geom_smooth(se = FALSE, method = "loess", formula = 'y ~ x') +
+  scale_y_continuous(limits = c(0, 100)) +
+  labs(x = NULL, y = NULL, color = "Candidate") +
+  scale_color_manual(values = c("mean_trump" = "red2", "mean_harris" = "blue2")) +
+  theme(legend.position = "top")
+
+# Display the overlay plot
+print(overlay_plot)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris.
+
+Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae leo. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit vel orci vel aliquam. Curabitur a turpis vestibulum enim interdum consectetur at et dui. Praesent ut mauris maximus, auctor nisl ac, eleifend sapien. Morbi non varius urna. Ut placerat vestibulum nisi in lacinia.
+
+Quisque pulvinar, enim a volutpat scelerisque, odio arcu condimentum velit, convallis vehicula velit augue id odio. Aenean ligula augue, mollis sit amet mi eu, ullamcorper aliquam massa. Aenean rutrum diam purus, eu porta mi blandit vitae. Phasellus luctus eleifend orci, nec aliquet mauris eleifend id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
 # Discussion {#sec-discussion}
 

@@ -84,12 +84,12 @@ pp_check(harris_model)
 set.seed(12)
 
 predicted_data_trump <- testing_data |>
-  select(pollster, state, swing_state, candidate_trump, pct) |>
+  select(pollster, state, start_date, end_date, swing_state, candidate_trump, pct) |>
   mutate(predicted_pct_trump =  100 * posterior_predict(trump_model, newdata = testing_data, type = "response") |> colMeans(),
          winner_trump = ifelse(predicted_pct_trump > 50, 1, 0))
 
 predicted_data_harris <- testing_data |>
-  select(pollster, state, swing_state, candidate_harris, pct) |>
+  select(pollster, state, start_date, end_date, swing_state, candidate_harris, pct) |>
   mutate(predicted_pct_harris =  100 * posterior_predict(harris_model, newdata = testing_data, type = "response") |> colMeans(),
          winner_harris = ifelse(predicted_pct_harris > 50, 1, 0))
 

@@ -14,8 +14,9 @@
 #### Workspace setup ####
 library(tidyverse)
 library(testthat)
+library(arrow)
 
-data <- read_csv("data/analysis_data/analysis_data.csv")
+data <- read_parquet("data/analysis_data/analysis_data.parquet")
 
 # Test if the data was successfully loaded
 if (exists("data")) {
