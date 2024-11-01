@@ -26,6 +26,11 @@ model_data <- model_data |>
   mutate(pollster = as.factor(pollster),
          state = as.factor(state),
          population = as.factor(population),
+         candidate_trump = ifelse(answer == "Trump", 1, 0),
+         candidate_harris = ifelse(answer == "Harris", 1, 0),
+         swing_state = ifelse(state %in% c("Arizona", "Georgia", "Michigan",
+                                           "Nevada", "North Carolina", "Pennsylvania",
+                                           "Wisconsin"), 1, 0),
          weight = numeric_grade * (sample_size / min(sample_size)),
          days_to_election = as.numeric(election_date - end_date))
 
@@ -34,15 +39,17 @@ set.seed(12)
 training_index <- createDataPartition(model_data$state, p = 0.7, list = FALSE)
 
 training_data <- model_data[training_index,]
-testing_data <- model_data[-training_index,] |> filter(swing_state == 1)
+testing_data <- model_data[-training_index,]
 
 testing_data <- testing_data |> filter(pollster %in% unique(training_data$pollster))
 
-priors <- normal(0.5, 2.5, autoscale = TRUE)
-formula <- candidate_trump ~ (1 | pollster) + (1 | state) + pct
+write_parquet(training_data, sink = "data/analysis_data/training_data.parquet")
+write_parquet(testing_data, sink = "data/analysis_data/testing_data.parquet")
 
-model <- stan_glmer(
-  formula = formula,
+priors <- normal(0.5, 2, autoscale = TRUE)
+
+trump_model <- stan_glmer(
+  formula = candidate_trump ~ (1 | pollster) + (1 | state) + pct,
   data = training_data,
   family = binomial(link = "logit"),
   prior = priors,
@@ -54,29 +61,50 @@ model <- stan_glmer(
   seed = 12
 )
 
-pp_check(model)
+harris_model <- stan_glmer(
+  formula = candidate_harris ~ (1 | pollster) + (1 | state) + pct,
+  data = training_data,
+  family = binomial(link = "logit"),
+  prior = priors,
+  prior_intercept = priors,
+  weights = weight,
+  cores = 4,
+  iter = 2000,
+  adapt_delta = 0.95,
+  seed = 12
+)
+
+pp_check(trump_model)
+pp_check(harris_model)
 
 set.seed(12)
 
-predicted_data <- testing_data |>
-  select(pollster, state, candidate_trump, pct) |>
-  mutate(predicted_pct =  100 * posterior_predict(model, newdata = testing_data, 
-                                                  draws = 2000, type = "response") |> colMeans(),
+predicted_data_trump <- testing_data |>
+  select(pollster, state, swing_state, candidate_trump, pct) |>
+  mutate(predicted_pct =  100 * posterior_predict(trump_model, newdata = testing_data, type = "response") |> colMeans(),
          winner_trump = ifelse(predicted_pct > 50, 1, 0))
 
-predicted_data |>
-  group_by(state) |> 
-  summarise(mean_pct = round(mean(pct), 2), 
-            mean_predicted = round(mean(predicted_pct), 2), 
-            .groups = "drop") |>
-  mutate(predicted_winner = ifelse(mean_predicted > 50, "Trump", "Harris"))
+predicted_data_harris <- testing_data |>
+  select(pollster, state, swing_state, candidate_harris, pct) |>
+  mutate(predicted_pct =  100 * posterior_predict(harris_model, newdata = testing_data, type = "response") |> colMeans(),
+         winner_harris = ifelse(predicted_pct > 50, 1, 0))
 
-F1_Score(predicted_data$candidate_trump, predicted_data$winner_trump)
+F1_Score(predicted_data_trump$candidate_trump, predicted_data_trump$winner_trump)
+F1_Score(predicted_data_harris$candidate_harris, predicted_data_harris$winner_harris)
 
-RMSE(predicted_data$candidate_trump, predicted_data$predicted_pct/100)
+AUC(predicted_data_trump$candidate_trump, predicted_data_trump$winner_trump)
+AUC(predicted_data_harris$candidate_harris, predicted_data_harris$winner_harris)
+
+RMSE(predicted_data_trump$candidate_trump, predicted_data_trump$predicted_pct/100)
+RMSE(predicted_data_harris$candidate_harris, predicted_data_harris$predicted_pct/100)
 
 #### Save model ####
 saveRDS(
-  model,
-  file = "models/election_model.rds"
+  trump_model,
+  file = "models/trump_model.rds"
+)
+
+saveRDS(
+  harris_model,
+  file = "models/harris_model.rds"
 )
