@@ -183,7 +183,7 @@ predicted_data |>
   ggplot(aes(x = end_date, y = mean)) +
   geom_point(size = 0.5) +
   scale_y_continuous(limits = c(0, 100)) +
-  geom_smooth(se = FALSE, color = "red2", method = "loess", formula = 'y ~ x') +
+  geom_smooth(se = FALSE, color = "#d92b34", method = "loess", formula = 'y ~ x') +
   facet_wrap(vars(state)) +
   labs(x = NULL, y = NULL)
 ```
@@ -215,7 +215,7 @@ overlay_plot <- ggplot(combined_data_long, aes(x = end_date, y = mean, color = c
   geom_smooth(se = FALSE, method = "loess", formula = 'y ~ x') +
   scale_y_continuous(limits = c(0, 100)) +
   labs(x = NULL, y = NULL, color = "Candidate") +
-  scale_color_manual(values = c("mean_trump" = "red2", "mean_harris" = "blue2")) +
+  scale_color_manual(values = c("mean_trump" = "#d92b34", "mean_harris" = "#2635bd")) +
   theme(legend.position = "top")
 
 # Display the overlay plot
@@ -227,6 +227,27 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac
 Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae leo. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit vel orci vel aliquam. Curabitur a turpis vestibulum enim interdum consectetur at et dui. Praesent ut mauris maximus, auctor nisl ac, eleifend sapien. Morbi non varius urna. Ut placerat vestibulum nisi in lacinia.
 
 Quisque pulvinar, enim a volutpat scelerisque, odio arcu condimentum velit, convallis vehicula velit augue id odio. Aenean ligula augue, mollis sit amet mi eu, ullamcorper aliquam massa. Aenean rutrum diam purus, eu porta mi blandit vitae. Phasellus luctus eleifend orci, nec aliquet mauris eleifend id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+```{r, echo = FALSE, fig.height=6, fig.width=8, warning = FALSE}
+library(usmap)
+
+sample <- predicted_data_harris |> 
+  merge(predicted_data_trump, all = T) |>
+  left_join(electoral_votes, by = c("state" = "state")) |>
+  mutate(predicted_winner = ifelse(replace_na(predicted_pct_harris, 50) <
+                                     replace_na(predicted_pct_trump, 50), 
+                                   "Trump", "Harris"))
+
+plot_usmap(regions = "state", data = sample, 
+           values = "predicted_winner") +
+  scale_fill_manual(values = c("#2635bd", "#d92b34", "grey90")) +
+  theme(legend.position = "top")
+```
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris.
+
+Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae leo. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit vel orci vel aliquam. Curabitur a turpis vestibulum enim interdum consectetur at et dui. Praesent ut mauris maximus, auctor nisl ac, eleifend sapien. Morbi non varius urna. Ut placerat vestibulum nisi in lacinia.
 
 # Discussion {#sec-discussion}
 
