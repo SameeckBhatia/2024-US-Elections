@@ -16,7 +16,7 @@
 library(tidyverse)
 library(rstanarm)
 library(arrow)
-library(caret)
+library(rsample)
 library(MLmetrics)
 library(modelsummary)
 
@@ -36,17 +36,23 @@ model_data <- model_data |>
 
 set.seed(12)
 
-training_index <- createDataPartition(model_data$state, p = 0.7, list = FALSE)
+model_data$state_answer <- interaction(model_data$state, model_data$answer, drop = TRUE)
 
-training_data <- model_data[training_index,]
-testing_data <- model_data[-training_index,]
+split <- initial_split(model_data, prop = 0.7, strata = state_answer)
 
-testing_data <- testing_data |> filter(pollster %in% unique(training_data$pollster))
+training_data <- training(split)
+testing_data <- testing(split)
+
+testing_data <- testing_data |> 
+  filter(pollster %in% unique(training_data$pollster)) |> 
+  select(!state_answer)
+
+testing_data |> filter(answer == "Harris") |> group_by(state) |> summarise(mean_pct = mean(pct))
 
 write_parquet(training_data, sink = "data/analysis_data/training_data.parquet")
 write_parquet(testing_data, sink = "data/analysis_data/testing_data.parquet")
 
-priors <- normal(0.5, 2, autoscale = TRUE)
+priors <- normal(0.5, 3, autoscale = TRUE)
 
 trump_model <- stan_glmer(
   formula = candidate_trump ~ (1 | pollster) + (1 | state) + pct,
@@ -81,13 +87,17 @@ set.seed(12)
 
 predicted_data_trump <- testing_data |>
   select(pollster, state, swing_state, candidate_trump, pct) |>
-  mutate(predicted_pct =  100 * posterior_predict(trump_model, newdata = testing_data, type = "response") |> colMeans(),
-         winner_trump = ifelse(predicted_pct > 50, 1, 0))
+  mutate(predicted_pct_trump =  100 * posterior_predict(trump_model, newdata = testing_data, type = "response") |> colMeans(),
+         winner_trump = ifelse(predicted_pct_trump > 50, 1, 0))
 
 predicted_data_harris <- testing_data |>
   select(pollster, state, swing_state, candidate_harris, pct) |>
-  mutate(predicted_pct =  100 * posterior_predict(harris_model, newdata = testing_data, type = "response") |> colMeans(),
-         winner_harris = ifelse(predicted_pct > 50, 1, 0))
+  mutate(predicted_pct_harris =  100 * posterior_predict(harris_model, newdata = testing_data, type = "response") |> colMeans(),
+         winner_harris = ifelse(predicted_pct_harris > 50, 1, 0))
+
+predicted_data <- predicted_data_harris |> merge(predicted_data_trump)
+
+write_parquet(predicted_data, sink = "data/analysis_data/predicted_data.parquet")
 
 F1_Score(predicted_data_trump$candidate_trump, predicted_data_trump$winner_trump)
 F1_Score(predicted_data_harris$candidate_harris, predicted_data_harris$winner_harris)
@@ -95,8 +105,8 @@ F1_Score(predicted_data_harris$candidate_harris, predicted_data_harris$winner_ha
 AUC(predicted_data_trump$candidate_trump, predicted_data_trump$winner_trump)
 AUC(predicted_data_harris$candidate_harris, predicted_data_harris$winner_harris)
 
-RMSE(predicted_data_trump$candidate_trump, predicted_data_trump$predicted_pct/100)
-RMSE(predicted_data_harris$candidate_harris, predicted_data_harris$predicted_pct/100)
+RMSE(predicted_data_trump$candidate_trump, predicted_data_trump$predicted_pct_trump/100)
+RMSE(predicted_data_harris$candidate_harris, predicted_data_harris$predicted_pct_harris/100)
 
 #### Save model ####
 saveRDS(
