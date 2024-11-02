@@ -77,46 +77,84 @@ TO-DO: All variables should be thoroughly examined and explained.
 
 # Model {#sec-model}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor quam et justo efficitur, sit amet eleifend elit euismod. Mauris non libero vel ligula tincidunt consequat. Aenean gravida, risus id auctor aliquam, orci leo auctor tellus, non tincidunt est arcu at lectus. Vivamus feugiat et quam ut consequat. Aenean mollis ullamcorper facilisis. Vivamus scelerisque lectus et elementum vulputate. Nulla et arcu vehicula, iaculis felis sit amet, semper justo. Suspendisse quam augue, hendrerit a tortor non, tristique feugiat sem. Curabitur vitae tortor nec ligula scelerisque rutrum.
+## Overview
 
-## Model set-up
-A Bayesian approach is used in constructing our model. As such, an informative prior is assumed, and logistic regression is implemented due to the nature of the outcome variable (binary).
+This section describes a predictive Bayesian model for estimating voter support for two candidates—Donald Trump and Kamala Harris—in the 2024 U.S. presidential election. The model separately estimates the proportion of support for each candidate in 37 states, including both swing states (e.g., Georgia, Arizona) and strongholds (e.g., California, Texas). The “Trump” model and “Harris” model each output the probability that a voter supports Trump or Harris, respectively, based on pollster reliability, state, and polling percentages.
 
-The predictor variables used in the model are as follows: 
+## Model Structure
 
-- **Sample Size (`sample_size`)**: The number of respondents in the poll.
-- **State (`state`)**: A categorical variable for different U.S. states.
-- **Days to Election (`days_to_election`)**: Counts the number of days until Election Day starting from today’s date (it also uses `end_date` from the original dataset).
-- **Voter Percentage of Candidate (`pct`)**: A continuous variable for the percentage of voters who plan to vote for Trump based on polling data.
+The Trump and Harris models share a similar structure, represented by the following equations:
 
-The model takes the form of the following equation [TO-DO]:
+- **Trump Model**:
 \begin{align}
-\text{pct}_i &= \beta_0 + \beta_1 \cdot \text{numeric\_grade}_i + \beta_2 \cdot \text{transparency\_score}_i \\
-             &\quad + \beta_3 \cdot \text{sample\_size}_i + \beta_4 \cdot \text{state}_i + \beta_5 \cdot \text{end\_date}_i + \epsilon_i \\
-\epsilon_i &\sim \text{Normal}(0, \sigma^2)
+\text{predicted\_pct\_trump} = \beta_0 + \beta_1 \cdot (1 | \text{pollster}) + \beta_2 \cdot (1 | \text{state}) + \beta_3 \cdot \text{pct}
 \end{align}
 
-Where: 
+- **Harris Model**:
 \begin{align}
-\beta_0 & \text{ is the intercept term} \\
-\beta_1, \beta_2, \beta_3, \beta_4, \beta_5 & \text{ are the coefficients for each predictor} \\
-\sigma^2 & \text{ is the variance of the error term}
+\text{predicted\_pct\_harris} = \beta_0 + \beta_1 \cdot (1 | \text{pollster}) + \beta_2 \cdot (1 | \text{state}) + \beta_3 \cdot \text{pct}
 \end{align}
+
+Here, $\beta_0$, $\beta_1$, $\beta_2$, and $\beta_3$ are the model coefficients. Here $\beta_0$ is the intercept or the baseline percentage, and $\beta_1$, $\beta_2$ are the mean percentage point change in the predicted percentage, while $\beta_3$ is the mean change in the response for a one percentage point change in the polling percentage. For each model, the indicator variable (1 if the candidate is Trump for the "Trump" model and Harris for the "Harris" model, 0 otherwise) represents the response, with pollster, state, and polling percentage as predictors. Random effects for "pollster" account for polling agency bias, and random effects for "state" capture state-level variations in voter support.
+
+## Predictors and Weights
+
+- **Pollster:** Different polling agencies show varying levels of reliability. We assign weights to pollsters based on their sample sizes and a numeric grade (0 to 3, with 3 being the most reliable).
+- **State:** By including states as a predictor, the model considers unique voter patterns by location, essential for identifying swing states and strongholds.
+- **Polling Percentage (pct):** The polling percentage represents the actual polling data, which directly informs our estimate of voter support for each candidate.
+
+## Priors
+
+For this Bayesian model, we use a normal prior with a mean of 0.5 (50%) and a standard deviation of 0.25 (25%). This prior assumes a close race between Trump and Harris, allowing for a reasonable degree of uncertainty without overconfidence in either direction. These parameters reflect the consensus of a competitive 2024 election.
+
+## Assumptions and Limitations
+
+The model assumes additional candidates besides Trump and Harris, addressed by separate models for each candidate. However, this dual-model approach may introduce error by not considering third-party effects directly. Furthermore, the model is limited to the 37 states included and cannot generalize predictions for other states (e.g., Idaho, Vermont).
+
+## Software Implementation
+
+The model was developed in R using the rstanarm package for Bayesian modeling, including priors, posteriors, and predictions.
+
+## Model Validation
+
+Model validation and performance metrics (F1 Score ~ 0.74, RMSE ~ 0.4) are available in `scripts/modeling.R`. A 70/30 train-test split was applied, with testing conducted exclusively on out-of-sample data. These scores indicate a reasonable balance of precision and recall, appropriate for the model’s simplicity and data limitations.
+
+## Alternative Models
+
+Alternative models considered included a single binary model (Trump vs. Harris) and a version with additional pollscore bias adjustment. While these models offer unique insights, they either oversimplify the election’s dynamics or risk overfitting. The final model balances simplicity with predictive accuracy.
+
+<!-- A Bayesian approach is used in constructing our model. As such, an informative prior is assumed, and logistic regression is implemented due to the nature of the outcome variable (binary). -->
+
+<!-- The predictor variables used in the model are as follows: -->
+
+<!-- - **Sample Size (`sample_size`)**: The number of respondents in the poll. -->
+<!-- - **State (`state`)**: A categorical variable for different U.S. states. -->
+<!-- - **Days to Election (`days_to_election`)**: Counts the number of days until Election Day starting from today’s date (it also uses `end_date` from the original dataset). -->
+<!-- - **Voter Percentage of Candidate (`pct`)**: A continuous variable for the percentage of voters who plan to vote for Trump based on polling data. -->
+
+<!-- The model takes the form of the following equation [TO-DO]: -->
+<!-- \begin{align} -->
+<!-- \text{pct}_i &= \beta_0 + \beta_1 \cdot \text{numeric\_grade}_i + \beta_2 \cdot \text{transparency\_score}_i \\ -->
+<!--              &\quad + \beta_3 \cdot \text{sample\_size}_i + \beta_4 \cdot \text{state}_i + \beta_5 \cdot \text{end\_date}_i + \epsilon_i \\ -->
+<!-- \epsilon_i &\sim \text{Normal}(0, \sigma^2) -->
+<!-- \end{align} -->
+
+<!-- Where: -->
+<!-- \begin{align} -->
+<!-- \beta_0 & \text{ is the intercept term} \\ -->
+<!-- \beta_1, \beta_2, \beta_3, \beta_4, \beta_5 & \text{ are the coefficients for each predictor} \\ -->
+<!-- \sigma^2 & \text{ is the variance of the error term} -->
+<!-- \end{align} -->
 
 ## Interpretation
-[WORDS TO-DO]
 
-## Model Justification and Evaluation
-[tbl-summary] shows the summary table for the model. 
-F1-Score blabla
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris.
 
 # Results {#sec-results}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris. In lacus massa, maximus vel vehicula in, tincidunt sed lorem. Proin commodo pulvinar dictum. Vestibulum eleifend, metus ac luctus molestie, velit odio cursus nisl, sed lobortis arcu massa id diam. Curabitur convallis erat a ultricies dictum. In imperdiet ultricies nibh, quis condimentum nulla mattis non.
 
 Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae leo. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit vel orci vel aliquam. Curabitur a turpis vestibulum enim interdum consectetur at et dui. Praesent ut mauris maximus, auctor nisl ac, eleifend sapien. Morbi non varius urna. Ut placerat vestibulum nisi in lacinia. Aliquam non ultrices arcu, et rhoncus dolor. Suspendisse vel pulvinar tortor. Nulla lacinia sapien sollicitudin, vestibulum nulla id, hendrerit nisl.
-
-Quisque pulvinar, enim a volutpat scelerisque, odio arcu condimentum velit, convallis vehicula velit augue id odio. Aenean ligula augue, mollis sit amet mi eu, ullamcorper aliquam massa. Aenean rutrum diam purus, eu porta mi blandit vitae. Phasellus luctus eleifend orci, nec aliquet mauris eleifend id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed elementum, magna sed finibus tincidunt, turpis orci viverra ligula, in sollicitudin nunc ex sed orci. Curabitur et purus tortor. Maecenas volutpat enim nisi, in ornare lectus venenatis id. In non enim dui. Suspendisse id eros in nisi consequat aliquet vel sed mi. Aenean placerat elementum semper.
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 #| label: tbl-prediction
