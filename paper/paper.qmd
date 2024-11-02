@@ -152,11 +152,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac
 
 # Results {#sec-results}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris. In lacus massa, maximus vel vehicula in, tincidunt sed lorem. Proin commodo pulvinar dictum. Vestibulum eleifend, metus ac luctus molestie, velit odio cursus nisl, sed lobortis arcu massa id diam. Curabitur convallis erat a ultricies dictum. In imperdiet ultricies nibh, quis condimentum nulla mattis non.
+The table below summarizes the predicted support percentages for Donald Trump and Kamala Harris across the states where polling data is available. Due to the model being trained on a subset of the cleaned data and the specific approach used to split training and testing data, there are some missing values for each candidate. These missing values are expected and are discussed in further detail in the appendix. Additionally, in some cases, the sum of the predicted percentages for Trump and Harris slightly exceeds 100%, falling within a typical margin of error. This minor discrepancy is likely due to prediction error, which is also explored in the appendix.
 
-Aliquam erat volutpat. Praesent in erat sit amet purus auctor posuere ut vitae leo. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut blandit vel orci vel aliquam. Curabitur a turpis vestibulum enim interdum consectetur at et dui. Praesent ut mauris maximus, auctor nisl ac, eleifend sapien. Morbi non varius urna. Ut placerat vestibulum nisi in lacinia. Aliquam non ultrices arcu, et rhoncus dolor. Suspendisse vel pulvinar tortor. Nulla lacinia sapien sollicitudin, vestibulum nulla id, hendrerit nisl.
+Based on the predicted percentages, a winning candidate is identified for each state, assuming the winner takes all electoral votes for that state. As anticipated, both candidates are expected to secure wins in their respective stronghold states, with no predicted changes in non-swing states. This highlights the critical role of swing states, where a victory for either candidate could be decisive in the overall election outcome. The results underline the importance for both Trump and Harris to perform well in these battleground regions to secure their path to victory.
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.align='center'}
 #| label: tbl-prediction
 #| echo: false
 #| 
@@ -206,7 +206,7 @@ predicted_data_harris |>
   mutate(predicted_winner = ifelse(replace_na(predicted_pct_harris, 50) <
                                      replace_na(predicted_pct_trump, 50), 
                                    "Trump", "Harris")) |>
-  kbl(booktabs = TRUE, col.names = c("State", "Predicted Harris %", "Predicted Trump %", "Electoral Votes", "Predicted Winner"))
+  kbl(booktabs = TRUE, col.names = c("State", "Harris %", "Trump %", "Electoral Votes", "Winner"))
 ```
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit leo, viverra ac enim non, pulvinar aliquam nisl. Nam accumsan ac nisi at consectetur. Curabitur luctus lacus eget risus rutrum, vel facilisis urna feugiat. Ut ac dictum velit, in blandit augue. Fusce sit amet vehicula dui. Suspendisse eleifend tempor rhoncus. Cras vehicula, nisl et molestie pulvinar, lorem ex dictum augue, nec mollis leo sem quis mauris. In lacus massa, maximus vel vehicula in, tincidunt sed lorem. Proin commodo pulvinar dictum.
@@ -360,6 +360,18 @@ kable(states_data, caption = "2020 Percentage of Urban Population for each US St
 
 # Additional Model Details
 
+The model evaluation relies on the F1 Score and RMSE (Root Mean Squared Error) as these metrics capture key aspects of prediction accuracy and reliability, aligning well with the paper’s objectives. The F1 Score, as the harmonic mean of precision and recall, is particularly useful here because it balances the model’s ability to correctly identify strong support for either candidate, ensuring both Trump and Harris’s predicted support is captured with minimal false positives and false negatives. This is essential in a political forecasting model, where the correct classification of state support is critical for predicting election outcomes. Meanwhile, RMSE provides insight into the overall prediction accuracy by measuring the average deviation of predictions from actual values. This helps gauge how well the model can approximate polling percentages, especially for swing states where slight errors can significantly impact projected outcomes. Together, these metrics ensure that the model is both precise in classification and accurate in magnitude, supporting the paper’s goal of making robust, actionable election predictions.
+
+# Additional Results Details
+
+## Null Values
+
+Some states in the summary table have null values in the predicted percentages for each candidate, which is due to the subsampling and splitting approach used in the model training process. Specifically, the model was trained on a subset of the cleaned dataset found in `data/analysis_data/analysis_data.parquet`, and when training and testing data were split, certain states did not have sufficient representation in both subsets. This led to gaps in the predictions for some states, as the model could not generalize well for locations with limited or no data during training. While these null values do not affect the core results, they highlight a limitation in the sampling approach, especially in states with fewer polling data points, and are further discussed with suggestions for improvement in the appendix.
+
+## Prediction Errors
+
+In some cases, the predicted percentages for Trump and Harris sum to slightly more than 100%, which reflects prediction error within an acceptable margin. This overestimation is consistent with the margin of error typically seen in polling averages, indicating that while the model is effective overall, minor discrepancies arise from rounding and the inherent variability in polling data. These errors can also result from the weights applied to pollsters based on their reliability scores, which may amplify certain pollster biases. To maintain accuracy, the model incorporates error margins similar to those in the polling data, ensuring predictions are within a reasonable range, with further analysis and adjustments explained in the appendix.
+
 # Polling Methodology Overview and Evaluation for Siena/NYT
 
 The poll was conducted from Sept. 29 to Oct. 6 and surveyed 3,385 likely voters nationwide and found that Harris led Trump by 49 percent to 46 percent, a slight lead that is within the poll’s margin of error (2.4 points). According to [@nyt-crosstabs], the national poll includes separate polls of 622 voters in Florida, and 617 voters in Texas. The weight given to each of these groups in the national poll has been adjusted so that the overall results are reflective of the entire country. Polls were also conducted by telephone, using live interviewers, in both English and Spanish, with about 98% of respondents were contacted on a cellphone [@nyt-topline]. For battleground polls, voters were called from Arizona, Georgia, Michigan, Nevada, Pennsylvania and Wisconsin [@nyt-methodology] — swing states that have a significant share in electoral college votes). In light of this, responses were also weighted to consider over- and under-represented voters to ensure that each demographic is adequately represented.
@@ -369,7 +381,7 @@ This poll employs a random sampling approach of registered voters using telephon
 In handling non-responses within their questionnaire, for some questions another “sub-question” related to the original is asked only once in order to get a definitive answer; this usually occurs in questions related to leaning (not outright) candidate support. By doing this, it allows NYT to more accurately gauge the public’s opinions. However, at times, they leave non-responses as “Refused” or “Don’t know” often on questions targeted to the individual person (e.g. How has ___ affected you personally?). At this point, there is little no use prodding further in case of a non-response. The overall questionnaire is of high quality (NYT/Siena is one of the most reputable polls after all), and it has its strong and weak points. First, most questions, often those on respondent identification or demographic, are unbiased and fair; in particular, questions on candidate preferences did not contain words suggestive of one candidate over another. However, some questions contain gender-coded language that may skew respondents’ answers in favor of one candidate (e.g. In the question “cares more about people like you” the word “cares” is more often associated with females and so respondents are more likely to choose Harris as the answer, which was seen in the poll results with Harris receiving 49% of responses versus Trump’s 41%). 
 
 
-# Appendix B: Idealized Methodology and Survey 
+# Idealized Methodology and Survey 
 
 ## Sampling Approach and Strategy
 
